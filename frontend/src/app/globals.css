@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#0A0D14] text-slate-100 antialiased selection:bg-[#EC4899] selection:text-white font-sans;
+  }
+
+  h1, h2, .font-serif {
+    font-family: 'Instrument Serif', Georgia, serif;
+  }
+}
+
+/* Roopantar Brand Gradient Tokens (derived from Logo) */
+.brand-gradient {
+  background: linear-gradient(135deg, #7C3AED 0%, #EC4899 50%, #F97316 100%);
+}
+
+.brand-gradient-text {
+  background: linear-gradient(135deg, #A855F7 0%, #EC4899 50%, #FB923C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-gradient-border {
+  border-image: linear-gradient(135deg, #7C3AED, #EC4899, #F97316) 1;
+}
+
+/* Canvas & Ambient Lighting */
+.roopantar-canvas {
+  background-color: #0A0D14;
+  background-image: 
+    radial-gradient(at 10% 10%, rgba(124, 58, 237, 0.15) 0px, transparent 45%),
+    radial-gradient(at 90% 15%, rgba(236, 72, 153, 0.15) 0px, transparent 45%),
+    radial-gradient(at 50% 80%, rgba(249, 115, 22, 0.12) 0px, transparent 50%),
+    radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: auto, auto, auto, 28px 28px;
+}
+
+/* Glass & Card Surfaces */
+.roopantar-card {
+  background: linear-gradient(180deg, rgba(22, 27, 38, 0.75) 0%, rgba(13, 17, 24, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.roopantar-card:hover {
+  border-color: rgba(236, 72, 153, 0.4);
+  box-shadow: 0 15px 40px -5px rgba(236, 72, 153, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Brand Buttons */
+.roopantar-btn-primary {
+  background: linear-gradient(135deg, #7C3AED 0%, #EC4899 50%, #F97316 100%);
+  color: #FFFFFF;
+  border-radius: 9999px;
+  box-shadow: 0 4px 20px rgba(236, 72, 153, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.roopantar-btn-primary:hover {
+  box-shadow: 0 6px 30px rgba(236, 72, 153, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+.roopantar-btn-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: #F1F5F9;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+}
+
+.roopantar-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(236, 72, 153, 0.4);
+}
+
+.roopantar-badge {
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.15) 0%, rgba(236, 72, 153, 0.15) 50%, rgba(249, 115, 22, 0.15) 100%);
+  border: 1px solid rgba(236, 72, 153, 0.3);
+  color: #F472B6;
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0D14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262D3D;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #EC4899;
+}

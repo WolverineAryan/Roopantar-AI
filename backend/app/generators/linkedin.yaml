@@ -1,0 +1,41 @@
+id: linkedin
+name: LinkedIn Post
+description: Engaging, professional social media post optimized for industry reach, key takeaways, thought leadership, and high engagement.
+category: Social & Outreach
+export_formats:
+  - txt
+  - json
+icon: Share2
+color: text-sky-500 bg-sky-500/10 border-sky-500/20
+
+system_prompt: |
+  You are an expert Social Media & Communications Strategist specializing in professional B2B and institutional LinkedIn content.
+  Craft a compelling, scannable post with a strong hook, whitespace for readability, key takeaway bullet points, a discussion-prompting call-to-action, and relevant hashtags.
+
+prompt_template: |
+  Generate a professional LinkedIn Post using the shared Intent Context below.
+  
+  CONTEXT:
+  Topic: {topic}
+  Domain: {domain}
+  Summary: {summary}
+  Key Entities: {entities}
+  Key Facts: {facts}
+  Action Points: {actions}
+  
+  PARAMETERS:
+  Tone: {tone}
+  Target Audience: {audience}
+  Detail Level: {detail_level}
+  Objective: {objective}
+  Language: {language}
+
+output_schema: |
+  {
+    "headline_hook": "string (1-2 sentence compelling scroll-stopper)",
+    "body_paragraphs": ["string"],
+    "key_takeaways": ["string"],
+    "call_to_action": "string",
+    "hashtags": ["string (e.g. #CyberSecurity, #Innovation)"],
+    "full_formatted_post": "string (the complete assembled copy-ready text)"
+  }

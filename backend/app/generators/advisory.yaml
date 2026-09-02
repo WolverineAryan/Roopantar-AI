@@ -1,0 +1,58 @@
+id: advisory
+name: Technical / Threat Advisory
+description: Structured operational advisory document with severity level, technical breakdown, actionable mitigations, and references.
+category: Security & Governance
+export_formats:
+  - docx
+  - pdf
+  - json
+icon: ShieldAlert
+color: text-rose-500 bg-rose-500/10 border-rose-500/20
+
+system_prompt: |
+  You are an expert Intelligence & Technical Communications Specialist.
+  Generate an authoritative, structured Advisory Document based on the provided Intent Context Object (ICO).
+  Strictly follow the output schema. Maintain high technical precision and factual alignment.
+
+prompt_template: |
+  Using the shared Intent Context below, generate an operational Advisory Document.
+  
+  CONTEXT:
+  Topic: {topic}
+  Domain: {domain}
+  Summary: {summary}
+  Key Entities: {entities}
+  Key Facts: {facts}
+  Risk Flags: {risk_flags}
+  Action Points: {actions}
+  
+  PARAMETERS:
+  Tone: {tone}
+  Target Audience: {audience}
+  Detail Level: {detail_level}
+  Objective: {objective}
+  Language: {language}
+
+output_schema: |
+  {
+    "title": "string",
+    "advisory_id": "string (e.g. ADV-2026-0901)",
+    "severity": "enum[Low, Medium, High, Critical]",
+    "date_issued": "string",
+    "summary": "string (1-2 clear paragraphs)",
+    "threat_or_issue_breakdown": [
+      {
+        "heading": "string",
+        "details": "string"
+      }
+    ],
+    "impact_assessment": "string",
+    "recommended_actions": [
+      {
+        "priority": "enum[Immediate, Short-Term, Long-Term]",
+        "action": "string",
+        "target_team": "string"
+      }
+    ],
+    "references": ["string"]
+  }

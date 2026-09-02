@@ -1,0 +1,60 @@
+id: infographic
+name: Infographic Architecture Spec
+description: Layout blueprint, key metric highlights, visual sections, icon recommendations, and process flow logic for graphics designers.
+category: Visual & Design
+export_formats:
+  - json
+  - pdf
+  - txt
+icon: BarChart2
+color: text-pink-500 bg-pink-500/10 border-pink-500/20
+
+system_prompt: |
+  You are an expert Data Visualizer & Information Architect.
+  Transform the source context into a structured blueprint for an infographic poster or digital graphic.
+  Include visual sections, key metric callouts, recommended iconography, and color scheme guidance.
+
+prompt_template: |
+  Generate an Infographic Architecture Spec from the shared Intent Context below.
+  
+  CONTEXT:
+  Topic: {topic}
+  Domain: {domain}
+  Summary: {summary}
+  Key Facts: {facts}
+  Risk Flags: {risk_flags}
+  Action Points: {actions}
+  
+  PARAMETERS:
+  Tone: {tone}
+  Target Audience: {audience}
+  Objective: {objective}
+  Language: {language}
+
+output_schema: |
+  {
+    "infographic_title": "string",
+    "subtitle": "string",
+    "recommended_layout": "string (e.g. Vertical Timeline, 4-Quadrant Matrix, Linear Process Flow)",
+    "color_palette": {
+      "primary": "string (hex or name)",
+      "accent": "string (hex or name)",
+      "background": "string"
+    },
+    "key_stat_callouts": [
+      {
+        "metric": "string (e.g. 70%, 24h)",
+        "label": "string",
+        "icon_suggestion": "string"
+      }
+    ],
+    "content_sections": [
+      {
+        "section_title": "string",
+        "visual_type": "string (e.g. Bar Chart, Icon Grid, Comparison Table, Flow Diagram)",
+        "content_points": ["string"],
+        "designer_tip": "string"
+      }
+    ],
+    "footer_attribution": "string"
+  }

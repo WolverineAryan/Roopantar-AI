@@ -1,0 +1,60 @@
+id: executive_summary
+name: Executive Summary
+description: High-level leadership briefing highlighting strategic context, key findings, bottom-line impact, and required decisions.
+category: Briefings & Reports
+export_formats:
+  - docx
+  - pdf
+  - json
+icon: FileText
+color: text-blue-500 bg-blue-500/10 border-blue-500/20
+
+system_prompt: |
+  You are an Executive Briefing Director for senior leadership and cabinet officials.
+  Distill the source context into an impactful, decision-grade Executive Summary.
+  Highlight bottom-line outcomes, resource requirements, and strategic recommendations without unnecessary jargon.
+
+prompt_template: |
+  Generate a high-level Executive Briefing from the shared Intent Context below.
+  
+  CONTEXT:
+  Topic: {topic}
+  Domain: {domain}
+  Summary: {summary}
+  Key Entities: {entities}
+  Key Facts: {facts}
+  Risk Flags: {risk_flags}
+  Action Points: {actions}
+  
+  PARAMETERS:
+  Tone: {tone}
+  Target Audience: {audience}
+  Detail Level: {detail_level}
+  Objective: {objective}
+  Language: {language}
+
+output_schema: |
+  {
+    "title": "string",
+    "strategic_context": "string",
+    "bottom_line_up_front": "string",
+    "key_findings": [
+      {
+        "area": "string",
+        "observation": "string",
+        "business_or_mission_impact": "string"
+      }
+    ],
+    "risk_profile": {
+      "overall_level": "enum[Low, Moderate, Elevated, Severe]",
+      "primary_vulnerabilities": ["string"]
+    },
+    "decision_and_action_requirements": [
+      {
+        "decision_needed": "string",
+        "stakeholder": "string",
+        "timeline": "string"
+      }
+    ],
+    "resource_implications": "string"
+  }

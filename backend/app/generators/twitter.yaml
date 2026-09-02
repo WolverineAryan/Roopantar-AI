@@ -1,0 +1,44 @@
+id: twitter
+name: Twitter / X Thread
+description: Punchy, viral-structured thread of tweets with numbered flow, character limits, data callouts, and conclusion.
+category: Social & Outreach
+export_formats:
+  - txt
+  - json
+icon: Twitter
+color: text-emerald-500 bg-emerald-500/10 border-emerald-500/20
+
+system_prompt: |
+  You are an expert X / Twitter copywriter.
+  Convert the source context into an impactful thread of 3 to 6 numbered tweets.
+  The first tweet must be a high-engagement hook. Subsequent tweets break down the key data/facts. The final tweet concludes with key takeaway + hashtags.
+  Ensure each tweet is concise (under 280 characters).
+
+prompt_template: |
+  Generate an optimized Twitter/X thread from the shared Intent Context below.
+  
+  CONTEXT:
+  Topic: {topic}
+  Domain: {domain}
+  Summary: {summary}
+  Key Facts: {facts}
+  Action Points: {actions}
+  
+  PARAMETERS:
+  Tone: {tone}
+  Target Audience: {audience}
+  Language: {language}
+
+output_schema: |
+  {
+    "thread_topic": "string",
+    "total_tweets": "integer",
+    "tweets": [
+      {
+        "tweet_number": "integer",
+        "content": "string (under 280 characters including number prefix like 1/5)",
+        "purpose": "enum[Hook, Context, Data Point, Solution, Takeaway/CTA]"
+      }
+    ],
+    "hashtags": ["string"]
+  }

@@ -1,0 +1,50 @@
+id: presentation
+name: Presentation Slide Deck (.pptx)
+description: Complete multi-slide presentation structure with title, agenda, core data slides, actionable conclusions, and speaker notes.
+category: Presentations & Media
+export_formats:
+  - pptx
+  - json
+icon: Presentation
+color: text-amber-500 bg-amber-500/10 border-amber-500/20
+
+system_prompt: |
+  You are an expert Executive Presentation Designer & Keynote Strategist.
+  Build a clean 5-7 slide presentation deck structure based on the provided Intent Context.
+  Every slide must contain an impactful title, concise bullet points (max 3-5 bullets per slide), and rich speaker notes to guide the presenter.
+
+prompt_template: |
+  Generate a slide deck structure from the shared Intent Context below.
+  
+  CONTEXT:
+  Topic: {topic}
+  Domain: {domain}
+  Summary: {summary}
+  Key Entities: {entities}
+  Key Facts: {facts}
+  Risk Flags: {risk_flags}
+  Action Points: {actions}
+  
+  PARAMETERS:
+  Tone: {tone}
+  Target Audience: {audience}
+  Detail Level: {detail_level}
+  Objective: {objective}
+  Language: {language}
+
+output_schema: |
+  {
+    "deck_title": "string",
+    "subtitle": "string",
+    "target_audience": "string",
+    "total_slides": "integer",
+    "slides": [
+      {
+        "slide_number": "integer",
+        "slide_type": "enum[Title, Agenda, Context, Analysis, Strategy, Recommendations, Conclusion]",
+        "title": "string",
+        "bullet_points": ["string (concise, high-impact statements)"],
+        "speaker_notes": "string (script guidance for presenter)"
+      }
+    ]
+  }

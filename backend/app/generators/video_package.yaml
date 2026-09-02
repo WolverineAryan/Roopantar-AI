@@ -1,0 +1,51 @@
+id: video_package
+name: Video Script & Storyboard Package
+description: Complete production package including scene-by-scene storyboard, narration script, visual recommendations, b-roll cues, and subtitles.
+category: Presentations & Media
+export_formats:
+  - docx
+  - pdf
+  - json
+icon: Video
+color: text-purple-500 bg-purple-500/10 border-purple-500/20
+
+system_prompt: |
+  You are an expert Video Producer and Creative Storyboard Director for educational and public briefing campaigns.
+  Produce a production-ready video package containing a clear hook, scene breakdowns, narration audio script, on-screen text, and visual b-roll directions.
+
+prompt_template: |
+  Generate a comprehensive Video Production Package from the shared Intent Context below.
+  
+  CONTEXT:
+  Topic: {topic}
+  Domain: {domain}
+  Summary: {summary}
+  Key Facts: {facts}
+  Action Points: {actions}
+  
+  PARAMETERS:
+  Tone: {tone}
+  Target Audience: {audience}
+  Detail Level: {detail_level}
+  Objective: {objective}
+  Language: {language}
+
+output_schema: |
+  {
+    "video_title": "string",
+    "target_duration": "string (e.g. 90 seconds / 2 minutes)",
+    "target_format": "string (e.g. 16:9 Explainer / 9:16 Short)",
+    "logline": "string",
+    "scenes": [
+      {
+        "scene_number": "integer",
+        "timestamp_marker": "string (e.g. 00:00 - 00:15)",
+        "scene_name": "string",
+        "visual_description": "string (graphics, b-roll, animations, actor actions)",
+        "narration_voiceover": "string (exact spoken dialogue)",
+        "on_screen_text": "string (subtitles / typography overlay)",
+        "audio_mood": "string (background music cue)"
+      }
+    ],
+    "production_notes": "string"
+  }
