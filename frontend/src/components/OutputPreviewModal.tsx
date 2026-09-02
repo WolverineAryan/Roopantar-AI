@@ -49,10 +49,10 @@ export const OutputPreviewModal: React.FC<OutputPreviewModalProps> = ({
   const currentOutput = availableOutputs.find((o) => o.format_type === activeTab);
 
   return (
-    <div className="roopantar-card rounded-3xl p-6 sm:p-8 space-y-6 relative overflow-hidden shadow-2xl">
+    <div className="roopantar-card-white rounded-3xl p-6 sm:p-8 space-y-6 relative overflow-hidden shadow-lg shadow-slate-200/50">
       
       {/* Top Format Switcher Tabs */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/[0.08] pb-5">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-5">
         <div className="flex items-center gap-1.5 overflow-x-auto pb-1 max-w-full">
           {availableOutputs.map((output) => {
             const Icon = TAB_ICONS[output.format_type] || FileText;
@@ -64,8 +64,8 @@ export const OutputPreviewModal: React.FC<OutputPreviewModalProps> = ({
                 onClick={() => setActiveTab(output.format_type)}
                 className={`px-4 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-2 whitespace-nowrap ${
                   isActive
-                    ? 'roopantar-btn-primary shadow-md'
-                    : 'text-slate-400 hover:text-white bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06]'
+                    ? 'roopantar-btn-primary shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900 bg-slate-50 hover:bg-slate-100 border border-slate-200/80'
                 }`}
               >
                 <Icon className="w-3.5 h-3.5" />
@@ -81,9 +81,9 @@ export const OutputPreviewModal: React.FC<OutputPreviewModalProps> = ({
             type="button"
             disabled={isRegenerating}
             onClick={() => onRegenerateFormat(activeTab)}
-            className="px-4 py-2 rounded-full roopantar-btn-secondary text-xs font-bold flex items-center gap-2 transition-all disabled:opacity-50"
+            className="px-4 py-2 rounded-full bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 text-xs font-bold flex items-center gap-2 transition-all disabled:opacity-50 shadow-2xs"
           >
-            <RotateCw className={`w-3.5 h-3.5 text-pink-400 ${isRegenerating ? 'animate-spin' : ''}`} />
+            <RotateCw className={`w-3.5 h-3.5 text-pink-600 ${isRegenerating ? 'animate-spin' : ''}`} />
             Regenerate Format
           </button>
         </div>
@@ -92,7 +92,7 @@ export const OutputPreviewModal: React.FC<OutputPreviewModalProps> = ({
       {/* Main Content Pane */}
       <div className="min-h-[380px]">
         {!currentOutput ? (
-          <div className="text-center py-20 text-slate-500 text-sm font-mono">
+          <div className="text-center py-20 text-slate-400 text-sm font-mono">
             Format output not found or still generating...
           </div>
         ) : (

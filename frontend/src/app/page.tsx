@@ -178,7 +178,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen roopantar-canvas flex flex-col font-sans relative text-slate-100">
+    <div className="min-h-screen roopantar-bright-canvas flex flex-col font-sans relative text-slate-900">
       
       {/* Top Navbar */}
       <Navbar 
@@ -191,7 +191,7 @@ export default function Home() {
       {/* Main Container */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12 relative z-10">
         
-        {/* Modular Attractive Hero Section */}
+        {/* Completely Redesigned Modular Hero with 3D Deliverable Objects */}
         <HeroSection 
           onGetStarted={scrollToStudio}
           onSelectPreset={handleHeroSelectPreset}
@@ -226,16 +226,16 @@ export default function Home() {
 
             {/* Error Notification */}
             {errorMessage && (
-              <div className="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-center gap-3 shadow-[0_0_20px_rgba(244,63,94,0.15)]">
-                <AlertCircle className="w-5 h-5 shrink-0 text-rose-400" />
+              <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-center gap-3 shadow-sm">
+                <AlertCircle className="w-5 h-5 shrink-0 text-rose-600" />
                 <span>{errorMessage}</span>
               </div>
             )}
 
             {/* Primary Action Button */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/[0.08]">
-              <div className="text-xs text-slate-400 flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-pink-400" />
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-slate-200">
+              <div className="text-xs text-slate-500 flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-pink-600" />
                 <span>Deterministic Schema Validation • Air-Gapped & Enterprise Cloud Agnostic</span>
               </div>
 
@@ -243,7 +243,7 @@ export default function Home() {
                 type="button"
                 disabled={isGenerating}
                 onClick={handleGenerate}
-                className="w-full sm:w-auto px-10 py-4 roopantar-btn-primary font-bold text-sm flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer group"
+                className="w-full sm:w-auto px-10 py-4 roopantar-btn-primary font-bold text-sm flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer group shadow-lg shadow-pink-500/20"
               >
                 {isGenerating ? (
                   <>
@@ -298,13 +298,13 @@ export default function Home() {
 
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-white/[0.06] bg-[#07090F]/90 py-8 mt-16 text-xs text-slate-500 relative z-10 backdrop-blur-md">
+      {/* Bright Footer */}
+      <footer className="border-t border-slate-200 bg-white py-8 mt-16 text-xs text-slate-500 relative z-10 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 font-medium text-slate-300">
-            <span className="font-bold text-white">Roopantar-AI</span>
+          <div className="flex items-center gap-2 font-medium text-slate-700">
+            <span className="font-bold text-slate-900">Roopantar-AI</span>
             <span>—</span>
-            <span className="text-slate-400 font-normal">Enterprise AI Content Transformation Platform</span>
+            <span className="text-slate-500 font-normal">Enterprise AI Content Transformation Platform</span>
           </div>
           <div className="text-slate-400">
             <span>Single-Source-to-Multi-Deliverable Architecture</span>

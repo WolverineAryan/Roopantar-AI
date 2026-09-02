@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-[#0A0D14] text-slate-100 antialiased selection:bg-[#EC4899] selection:text-white font-sans;
+    @apply bg-[#F8FAFC] text-slate-900 antialiased selection:bg-[#EC4899] selection:text-white font-sans;
   }
 
   h1, h2, .font-serif {
@@ -18,7 +18,7 @@
 }
 
 .brand-gradient-text {
-  background: linear-gradient(135deg, #A855F7 0%, #EC4899 50%, #FB923C 100%);
+  background: linear-gradient(135deg, #6D28D9 0%, #DB2777 50%, #EA580C 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -27,78 +27,115 @@
   border-image: linear-gradient(135deg, #7C3AED, #EC4899, #F97316) 1;
 }
 
-/* Canvas & Ambient Lighting */
-.roopantar-canvas {
-  background-color: #0A0D14;
+/* Bright Canvas with Subtle Multi-Color Ambient Glows */
+.roopantar-bright-canvas {
+  background-color: #F8FAFC;
   background-image: 
-    radial-gradient(at 10% 10%, rgba(124, 58, 237, 0.15) 0px, transparent 45%),
-    radial-gradient(at 90% 15%, rgba(236, 72, 153, 0.15) 0px, transparent 45%),
-    radial-gradient(at 50% 80%, rgba(249, 115, 22, 0.12) 0px, transparent 50%),
-    radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: auto, auto, auto, 28px 28px;
+    radial-gradient(at 15% 10%, rgba(124, 58, 237, 0.08) 0px, transparent 40%),
+    radial-gradient(at 85% 15%, rgba(236, 72, 153, 0.08) 0px, transparent 40%),
+    radial-gradient(at 50% 80%, rgba(249, 115, 22, 0.06) 0px, transparent 45%),
+    radial-gradient(#E2E8F0 1px, transparent 1px);
+  background-size: auto, auto, auto, 24px 24px;
 }
 
-/* Glass & Card Surfaces */
-.roopantar-card {
-  background: linear-gradient(180deg, rgba(22, 27, 38, 0.75) 0%, rgba(13, 17, 24, 0.9) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+/* Crisp White High-End Surface Cards */
+.roopantar-card-white {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 25px -4px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.roopantar-card:hover {
-  border-color: rgba(236, 72, 153, 0.4);
-  box-shadow: 0 15px 40px -5px rgba(236, 72, 153, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+.roopantar-card-white:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 12px 35px -5px rgba(236, 72, 153, 0.08), 0 2px 6px rgba(15, 23, 42, 0.04);
 }
 
-/* Brand Buttons */
+/* Glass Floating Objects for Hero */
+.roopantar-floating-object {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+}
+
+/* Action Buttons */
 .roopantar-btn-primary {
   background: linear-gradient(135deg, #7C3AED 0%, #EC4899 50%, #F97316 100%);
   color: #FFFFFF;
   border-radius: 9999px;
-  box-shadow: 0 4px 20px rgba(236, 72, 153, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  transition: all 0.2s ease;
+  box-shadow: 0 4px 18px rgba(236, 72, 153, 0.35);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .roopantar-btn-primary:hover {
-  box-shadow: 0 6px 30px rgba(236, 72, 153, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  box-shadow: 0 6px 26px rgba(236, 72, 153, 0.5);
   transform: translateY(-1px);
 }
 
 .roopantar-btn-secondary {
-  background: rgba(255, 255, 255, 0.04);
-  color: #F1F5F9;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #FFFFFF;
+  color: #1E293B;
+  border: 1px solid #E2E8F0;
   border-radius: 9999px;
-  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
   transition: all 0.2s ease;
 }
 
 .roopantar-btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(236, 72, 153, 0.4);
+  background: #F8FAFC;
+  border-color: #CBD5E1;
+  color: #0F172A;
 }
 
-.roopantar-badge {
-  background: linear-gradient(90deg, rgba(124, 58, 237, 0.15) 0%, rgba(236, 72, 153, 0.15) 50%, rgba(249, 115, 22, 0.15) 100%);
-  border: 1px solid rgba(236, 72, 153, 0.3);
-  color: #F472B6;
+.roopantar-badge-bright {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  color: #6D28D9;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
 }
 
-/* Custom modern scrollbar */
+/* Animations for floating objects */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(0.5deg); }
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(8px) rotate(-0.5deg); }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 7s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0A0D14;
+  background: #F1F5F9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #262D3D;
+  background: #CBD5E1;
   border-radius: 9999px;
 }
 

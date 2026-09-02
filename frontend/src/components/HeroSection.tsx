@@ -16,7 +16,11 @@ import {
   Database,
   Flame,
   CheckCircle2,
-  ChevronRight
+  ChevronRight,
+  TrendingUp,
+  Download,
+  Play,
+  Volume2
 } from 'lucide-react';
 
 interface HeroSectionProps {
@@ -70,27 +74,25 @@ Nutra-Organics India has completed clinical trials for 'ProMillet-Active', an al
 - Dissemination Mandate: Brief executive leadership on retail supply chain logistics, publish consumer LinkedIn thought-leadership on millet nutrition, and launch social awareness threads on healthy energy alternatives.`;
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onGetStarted, onSelectPreset }) => {
-  const [activeVisualTab, setActiveVisualTab] = useState<'flow' | 'ico' | 'formats'>('flow');
-
   return (
-    <div className="space-y-12 pt-4 pb-6 relative">
+    <div className="space-y-16 pt-6 pb-4 relative">
       
-      {/* Background radial ambient halo */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[380px] bg-gradient-to-r from-purple-600/15 via-pink-600/15 to-orange-500/15 rounded-full blur-3xl pointer-events-none -z-10" />
+      {/* Background Soft Pastel Ambient Halo */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[450px] bg-gradient-to-tr from-purple-200/40 via-pink-200/35 to-orange-100/40 rounded-full blur-3xl pointer-events-none -z-10" />
 
       {/* Main Headline & Intro */}
       <div className="text-center max-w-4xl mx-auto space-y-6">
         
-        {/* Animated Pill Badge */}
-        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full roopantar-badge text-xs font-bold tracking-tight shadow-[0_0_20px_rgba(236,72,153,0.25)] backdrop-blur-md">
-          <span className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-orange-400 animate-ping" />
-          <span className="text-white font-medium">Single-Source GenAI Content Transformation</span>
-          <span className="text-slate-500">•</span>
-          <span className="text-pink-300 font-mono text-[11px] font-bold">Production MVP</span>
+        {/* Crisp White Top Pill */}
+        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-bold tracking-tight shadow-sm text-slate-800">
+          <span className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 animate-pulse" />
+          <span>Single-Source GenAI Content Transformation Engine</span>
+          <span className="text-slate-300">•</span>
+          <span className="brand-gradient-text font-mono text-[11px] font-extrabold">Enterprise Platform</span>
         </div>
 
-        {/* Dynamic Dual-Tone Hero Title */}
-        <h1 className="font-extrabold text-4xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-[1.1] max-w-4xl mx-auto">
+        {/* High-Impact Hero Headline */}
+        <h1 className="font-extrabold text-4xl sm:text-6xl lg:text-7xl text-slate-900 tracking-tight leading-[1.12] max-w-4xl mx-auto">
           One Source Document.{' '}
           <span className="brand-gradient-text block sm:inline">
             7 Ready Deliverables.
@@ -98,18 +100,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onGetStarted, onSelect
         </h1>
 
         {/* Subtitle */}
-        <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto">
-          Stop writing presentations, executive summaries, and advisories manually. Ingest your source material once to extract a shared <strong className="text-white font-semibold">Intent Context Object (ICO)</strong> and fan out to PowerPoint, Word, PDF, Social, and Video scripts in seconds.
+        <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto">
+          Ingest raw documents, incident briefings, and multimedia once. Roopantar extracts a single-pass <strong className="text-slate-900 font-semibold">Intent Context Object (ICO)</strong> and deterministically outputs schema-validated presentation decks, executive summaries, advisories, and social threads in seconds.
         </p>
 
-        {/* Action Buttons & Quick Presets */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+        {/* CTA Buttons & Presets */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-3">
           <button
             type="button"
             onClick={onGetStarted}
-            className="w-full sm:w-auto px-8 py-3.5 roopantar-btn-primary font-bold text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-pink-500/25 group cursor-pointer"
+            className="w-full sm:w-auto px-8 py-3.5 roopantar-btn-primary font-bold text-sm flex items-center justify-center gap-2.5 shadow-md shadow-pink-500/20 group cursor-pointer"
           >
-            <span>Launch Studio Workspace</span>
+            <span>Open Studio Workspace</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
 
@@ -117,14 +119,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onGetStarted, onSelect
             <button
               type="button"
               onClick={() => onSelectPreset(SAMPLE_CYBER_BRIEFING)}
-              className="flex-1 sm:flex-initial px-4 py-3 rounded-full roopantar-btn-secondary text-xs font-semibold text-slate-200 hover:text-white flex items-center justify-center gap-1.5 cursor-pointer"
+              className="flex-1 sm:flex-initial px-4 py-3 rounded-full bg-white hover:bg-slate-50 border border-slate-200 text-xs font-semibold text-slate-700 hover:text-slate-900 shadow-2xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
             >
-              <span>🛡️ Threat Brief</span>
+              <span>🛡️ Security Brief</span>
             </button>
             <button
               type="button"
               onClick={() => onSelectPreset(SAMPLE_FOOD_PRODUCT)}
-              className="flex-1 sm:flex-initial px-4 py-3 rounded-full roopantar-btn-secondary text-xs font-semibold text-slate-200 hover:text-white flex items-center justify-center gap-1.5 cursor-pointer"
+              className="flex-1 sm:flex-initial px-4 py-3 rounded-full bg-white hover:bg-slate-50 border border-slate-200 text-xs font-semibold text-slate-700 hover:text-slate-900 shadow-2xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
             >
               <span>🥗 Product Launch</span>
             </button>
@@ -133,205 +135,233 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onGetStarted, onSelect
 
       </div>
 
-      {/* Modular Interactive Architecture Showcase */}
-      <div className="roopantar-card rounded-3xl p-6 sm:p-8 border border-white/[0.1] shadow-2xl relative overflow-hidden max-w-5xl mx-auto">
+      {/* Dynamic Visual Stage: 3D Deliverable Objects Surrounding Neural Transformation Hub */}
+      <div className="relative max-w-6xl mx-auto py-8">
         
-        {/* Showcase Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/[0.08] pb-5 mb-6">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-purple-600/30 to-pink-500/30 border border-white/10 flex items-center justify-center text-pink-400">
-              <Zap className="w-5 h-5" />
+        {/* Subtle grid pattern background under objects */}
+        <div className="absolute inset-0 bg-[radial-gradient(#CBD5E1_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-40 pointer-events-none" />
+
+        {/* Central Transformation Hub */}
+        <div className="relative z-20 flex flex-col items-center justify-center my-6">
+          
+          <div className="relative p-6 rounded-3xl bg-white border border-slate-200/90 shadow-xl shadow-purple-500/5 max-w-xs text-center space-y-3 group hover:border-pink-300 transition-all">
+            
+            {/* Glowing ambient ring */}
+            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-orange-500/20 blur-xl opacity-75 group-hover:opacity-100 transition-opacity -z-10" />
+
+            <div className="mx-auto w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-50 to-pink-50 border border-pink-100 flex items-center justify-center p-2 shadow-inner">
+              <img src="/logo.png" alt="Roopantar Core" className="h-10 w-auto object-contain" />
             </div>
+
             <div>
-              <h3 className="text-base font-bold text-white">Interactive Transformation Architecture</h3>
-              <p className="text-xs text-slate-400">Deterministic Single-Source to Multi-Format Pipeline</p>
+              <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-pink-600 bg-pink-50 px-2.5 py-0.5 rounded-full border border-pink-100">
+                Single-Pass Engine
+              </span>
+              <h3 className="text-sm font-extrabold text-slate-900 mt-1.5">
+                Intent Context Object (ICO)
+              </h3>
+              <p className="text-[11px] text-slate-500 leading-snug">
+                Extracts facts, risks, and taxonomy once. Eliminates 70%+ redundant LLM compute.
+              </p>
+            </div>
+
+            <div className="flex items-center justify-center gap-1.5 text-[10px] font-bold text-slate-700 bg-slate-50 p-2 rounded-xl border border-slate-100">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>Fan-Out to 7 Formats Parallel</span>
             </div>
           </div>
 
-          {/* Switcher Pills */}
-          <div className="flex items-center gap-1.5 bg-white/[0.04] p-1 rounded-full border border-white/[0.08] self-start sm:self-auto">
-            <button
-              type="button"
-              onClick={() => setActiveVisualTab('flow')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
-                activeVisualTab === 'flow' ? 'roopantar-btn-primary text-white shadow-xs' : 'text-slate-400 hover:text-white'
-              }`}
-            >
-              Pipeline Flow
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveVisualTab('ico')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
-                activeVisualTab === 'ico' ? 'roopantar-btn-primary text-white shadow-xs' : 'text-slate-400 hover:text-white'
-              }`}
-            >
-              Shared ICO Core
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveVisualTab('formats')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
-                activeVisualTab === 'formats' ? 'roopantar-btn-primary text-white shadow-xs' : 'text-slate-400 hover:text-white'
-              }`}
-            >
-              7 Output Matrix
-            </button>
-          </div>
         </div>
 
-        {/* Tab 1: Pipeline Flow Interactive Graphic */}
-        {activeVisualTab === 'flow' && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center py-4">
-            
-            {/* Stage 1: Input Ingestion */}
-            <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] space-y-3 relative group hover:border-purple-500/40 transition-all">
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300">
-                  STEP 01
-                </span>
-                <FileText className="w-4 h-4 text-purple-400" />
+        {/* 4 Interactive Floating Deliverable Objects in Bento Array */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 relative z-10">
+          
+          {/* Object 1: PowerPoint Presentation Deck Object */}
+          <div className="roopantar-floating-object p-5 rounded-3xl space-y-3 animate-float-slow hover:border-purple-300 transition-all">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-100 flex items-center gap-1">
+                <Presentation className="w-3 h-3 text-purple-600" />
+                Keynote Deck
+              </span>
+              <span className="text-[10px] font-mono text-slate-400">16:9 Widescreen</span>
+            </div>
+
+            {/* Mini Slide Preview Object */}
+            <div className="aspect-[16/10] rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 p-3.5 text-white flex flex-col justify-between shadow-md">
+              <div className="flex justify-between items-center text-[9px] text-slate-400 font-mono">
+                <span>SLIDE 01/06</span>
+                <span className="text-pink-400">Roopantar-AI</span>
               </div>
-              <h4 className="text-sm font-bold text-white">Multi-Modal Source Ingestion</h4>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Ingest PDF, DOCX, TXT, OCR scanned images, or multimedia audio/video.
-              </p>
-              <div className="flex flex-wrap gap-1.5 pt-1 text-[10px] font-mono text-slate-300">
-                <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">.PDF</span>
-                <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">.DOCX</span>
-                <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">Whisper Audio</span>
+              <div>
+                <h5 className="text-xs font-bold text-white leading-tight">Executive Threat Response</h5>
+                <p className="text-[10px] text-slate-300 line-clamp-2 mt-0.5 leading-snug">
+                  • Perimeter isolation enforced across all 4 edge gateway nodes.
+                </p>
+              </div>
+              <div className="text-[8px] text-slate-500 font-mono pt-1 border-t border-slate-700">
+                Speaker notes attached (.pptx)
               </div>
             </div>
 
-            {/* Stage 2: Unified Intent Core */}
-            <div className="p-5 rounded-2xl bg-gradient-to-b from-pink-950/30 to-purple-950/40 border border-pink-500/40 space-y-3 relative shadow-[0_0_30px_rgba(236,72,153,0.15)] ring-1 ring-pink-500/30">
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-pink-500/20 text-pink-300">
-                  STEP 02 (CORE)
-                </span>
-                <Database className="w-4 h-4 text-pink-400 animate-pulse" />
-              </div>
-              <h4 className="text-sm font-bold text-white">Single-Pass Intent Extraction (ICO)</h4>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                Extracts topic, key facts, risk flags, tone signals, and action items in 1 unified LLM pass.
-              </p>
-              <div className="text-[11px] font-mono text-pink-300 font-semibold flex items-center gap-1 pt-1">
-                <span>⚡ 70%+ Token Cost Reduction</span>
-              </div>
-            </div>
-
-            {/* Stage 3: Parallel Fan-Out */}
-            <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] space-y-3 relative group hover:border-orange-500/40 transition-all">
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-orange-500/20 text-orange-300">
-                  STEP 03
-                </span>
-                <Layers className="w-4 h-4 text-orange-400" />
-              </div>
-              <h4 className="text-sm font-bold text-white">7 Concurrent Deliverable Exporters</h4>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Parallel generator pool outputs schema-validated files and export downloads simultaneously.
-              </p>
-              <div className="flex flex-wrap gap-1.5 pt-1 text-[10px] font-mono text-slate-300">
-                <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">.PPTX</span>
-                <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">.DOCX</span>
-                <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">.PDF</span>
-              </div>
-            </div>
-
-          </div>
-        )}
-
-        {/* Tab 2: Shared ICO Core Schema Inspector */}
-        {activeVisualTab === 'ico' && (
-          <div className="p-5 rounded-2xl bg-[#080B12] border border-white/[0.08] space-y-4 font-mono text-xs text-slate-300">
-            <div className="flex items-center justify-between border-b border-white/[0.08] pb-2 text-[11px] text-pink-400 font-bold">
-              <span>IntentContextObject (ICO) — Pydantic Schema</span>
-              <span>Single-Pass Ground Truth</span>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-[11px] leading-relaxed">
-              <div className="space-y-1.5 p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <span className="text-purple-400 font-bold">• Core Taxonomy:</span>
-                <p className="text-slate-400">topic: str, domain: str, executive_summary: str</p>
-                <span className="text-pink-400 font-bold">• Extracted Intelligence:</span>
-                <p className="text-slate-400">key_entities: List[str], key_facts: List[str]</p>
-              </div>
-              <div className="space-y-1.5 p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <span className="text-orange-400 font-bold">• Risk & Action Vectors:</span>
-                <p className="text-slate-400">risk_flags: List[str], recommended_actions: List[str]</p>
-                <span className="text-emerald-400 font-bold">• Stylistic Alignment:</span>
-                <p className="text-slate-400">tone_signals: List[str], audience_target: str</p>
-              </div>
+            <div className="flex items-center justify-between text-[11px] text-slate-600 pt-1">
+              <span className="font-semibold text-slate-800">Presentation Deck</span>
+              <span className="px-2 py-0.5 rounded-full bg-purple-50 text-purple-700 font-mono text-[10px] font-bold">.PPTX</span>
             </div>
           </div>
-        )}
 
-        {/* Tab 3: 7 Output Matrix Grid */}
-        {activeVisualTab === 'formats' && (
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 py-2">
-            {[
-              { title: 'Advisory', icon: ShieldCheck, ext: '.DOCX/.PDF', col: 'text-rose-400' },
-              { title: 'Executive BLUF', icon: FileText, ext: '.DOCX/.PDF', col: 'text-purple-400' },
-              { title: 'LinkedIn Post', icon: Share2, ext: 'Text / TXT', col: 'text-sky-400' },
-              { title: 'Twitter Thread', icon: Twitter, ext: 'Thread / TXT', col: 'text-emerald-400' },
-              { title: 'Presentation', icon: Presentation, ext: '.PPTX Slides', col: 'text-amber-400' },
-              { title: 'Video Package', icon: Video, ext: 'Script (.DOCX)', col: 'text-pink-400' },
-              { title: 'Infographic', icon: BarChart2, ext: 'Blueprint (.PDF)', col: 'text-orange-400' },
-            ].map((f, i) => (
-              <div key={i} className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-center space-y-2 hover:border-pink-500/40 transition-all">
-                <f.icon className={`w-5 h-5 mx-auto ${f.col}`} />
-                <div className="text-xs font-bold text-white truncate">{f.title}</div>
-                <div className="text-[10px] font-mono text-slate-400">{f.ext}</div>
+          {/* Object 2: Security & Operational Threat Advisory */}
+          <div className="roopantar-floating-object p-5 rounded-3xl space-y-3 animate-float-reverse hover:border-pink-300 transition-all">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-100 flex items-center gap-1">
+                <ShieldCheck className="w-3 h-3 text-rose-600" />
+                Threat Advisory
+              </span>
+              <span className="text-[10px] font-mono text-rose-600 font-bold animate-pulse">CRITICAL</span>
+            </div>
+
+            {/* Mini Advisory Document Object */}
+            <div className="p-3.5 rounded-2xl bg-white border border-slate-200/90 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between text-[9px] font-mono text-slate-500 border-b border-slate-100 pb-1">
+                <span>ADV-2026-8841</span>
+                <span>CVE-2026-4419</span>
               </div>
-            ))}
+              <h5 className="text-xs font-bold text-slate-900 leading-tight">Edge Gateway Vulnerability</h5>
+              <div className="space-y-1">
+                <div className="flex items-center gap-1.5 text-[10px] text-slate-600">
+                  <span className="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+                  <span>Port 8443 Management Interface</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-[10px] text-slate-600">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <span>Hotfix HF-2026-9A Mandated</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between text-[11px] text-slate-600 pt-1">
+              <span className="font-semibold text-slate-800">Operational Advisory</span>
+              <span className="px-2 py-0.5 rounded-full bg-pink-50 text-pink-700 font-mono text-[10px] font-bold">.DOCX / .PDF</span>
+            </div>
           </div>
-        )}
+
+          {/* Object 3: LinkedIn Viral Thought-Leadership */}
+          <div className="roopantar-floating-object p-5 rounded-3xl space-y-3 animate-float-slow hover:border-pink-300 transition-all">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-sky-50 text-sky-700 border border-sky-100 flex items-center gap-1">
+                <Share2 className="w-3 h-3 text-sky-600" />
+                LinkedIn Post
+              </span>
+              <span className="text-[10px] font-mono text-slate-500 font-semibold">98% Score</span>
+            </div>
+
+            {/* Mini Social Post Object */}
+            <div className="p-3.5 rounded-2xl bg-white border border-slate-200/90 space-y-2 shadow-sm">
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white text-[9px] font-bold flex items-center justify-center">
+                  RA
+                </div>
+                <div className="text-[9px] text-slate-700 font-bold">Roopantar Engine</div>
+              </div>
+              <p className="text-[10px] text-slate-800 font-semibold leading-snug line-clamp-2">
+                🚨 Critical cybersecurity update: Are your edge gateways patched?
+              </p>
+              <div className="text-[9px] text-pink-600 font-mono">
+                #CyberSecurity #DevOps #Leadership
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between text-[11px] text-slate-600 pt-1">
+              <span className="font-semibold text-slate-800">Social Distribution</span>
+              <span className="px-2 py-0.5 rounded-full bg-sky-50 text-sky-700 font-mono text-[10px] font-bold">1-Click Copy</span>
+            </div>
+          </div>
+
+          {/* Object 4: Video Script & Storyboard Scene Object */}
+          <div className="roopantar-floating-object p-5 rounded-3xl space-y-3 animate-float-reverse hover:border-orange-300 transition-all">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-orange-50 text-orange-700 border border-orange-100 flex items-center gap-1">
+                <Video className="w-3 h-3 text-orange-600" />
+                Video Storyboard
+              </span>
+              <span className="text-[10px] font-mono text-slate-500">90s Package</span>
+            </div>
+
+            {/* Mini Storyboard Scene Object */}
+            <div className="p-3.5 rounded-2xl bg-white border border-slate-200/90 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between text-[9px] text-slate-500 font-mono">
+                <span>SCENE 02</span>
+                <span className="text-orange-600 font-bold">00:15 - 00:30</span>
+              </div>
+              <div className="p-2 rounded-xl bg-slate-50 border border-slate-100 text-[9px] text-slate-700 italic leading-snug line-clamp-2">
+                "Voiceover: Immediate perimeter containment prevents lateral intrusion..."
+              </div>
+              <div className="flex items-center gap-1 text-[9px] text-slate-500 font-mono">
+                <Volume2 className="w-3 h-3 text-orange-500" />
+                <span>Audio: Urgent synth beat</span>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between text-[11px] text-slate-600 pt-1">
+              <span className="font-semibold text-slate-800">Multimedia Script</span>
+              <span className="px-2 py-0.5 rounded-full bg-orange-50 text-orange-700 font-mono text-[10px] font-bold">.DOCX</span>
+            </div>
+          </div>
+
+        </div>
 
       </div>
 
-      {/* Modular 4-Card Bento Stats Bar */}
+      {/* Modular 4-Card Bento Stats Bar on Pure White Canvas */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
         
-        <div className="p-5 rounded-2xl roopantar-card space-y-2 group hover:border-pink-500/40 transition-all">
+        <div className="p-5 rounded-2xl roopantar-card-white space-y-1.5 group hover:border-purple-300 transition-all">
           <div className="flex items-center justify-between">
-            <span className="text-2xl font-black text-white font-mono brand-gradient-text">&gt;70%</span>
-            <Zap className="w-4 h-4 text-amber-400" />
+            <span className="text-2xl font-black text-slate-900 font-mono brand-gradient-text">&gt;70%</span>
+            <div className="w-8 h-8 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center">
+              <Zap className="w-4 h-4" />
+            </div>
           </div>
-          <h4 className="text-xs font-bold text-slate-200">Cost & Token Optimization</h4>
-          <p className="text-xs text-slate-400 leading-relaxed">
+          <h4 className="text-xs font-bold text-slate-900">Cost & Token Optimization</h4>
+          <p className="text-xs text-slate-500 leading-relaxed">
             Eliminates redundant prompt token overhead by extracting the ICO once.
           </p>
         </div>
 
-        <div className="p-5 rounded-2xl roopantar-card space-y-2 group hover:border-pink-500/40 transition-all">
+        <div className="p-5 rounded-2xl roopantar-card-white space-y-1.5 group hover:border-pink-300 transition-all">
           <div className="flex items-center justify-between">
-            <span className="text-2xl font-black text-white font-mono brand-gradient-text">100%</span>
-            <ShieldCheck className="w-4 h-4 text-pink-400" />
+            <span className="text-2xl font-black text-slate-900 font-mono brand-gradient-text">100%</span>
+            <div className="w-8 h-8 rounded-full bg-pink-50 text-pink-600 flex items-center justify-center">
+              <ShieldCheck className="w-4 h-4" />
+            </div>
           </div>
-          <h4 className="text-xs font-bold text-slate-200">Deterministic Schemas</h4>
-          <p className="text-xs text-slate-400 leading-relaxed">
+          <h4 className="text-xs font-bold text-slate-900">Deterministic Schemas</h4>
+          <p className="text-xs text-slate-500 leading-relaxed">
             Strict Pydantic schema validation ensures zero hallucinated layout defects.
           </p>
         </div>
 
-        <div className="p-5 rounded-2xl roopantar-card space-y-2 group hover:border-pink-500/40 transition-all">
+        <div className="p-5 rounded-2xl roopantar-card-white space-y-1.5 group hover:border-orange-300 transition-all">
           <div className="flex items-center justify-between">
-            <span className="text-2xl font-black text-white font-mono brand-gradient-text">~8s</span>
-            <Flame className="w-4 h-4 text-orange-400" />
+            <span className="text-2xl font-black text-slate-900 font-mono brand-gradient-text">~8s</span>
+            <div className="w-8 h-8 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center">
+              <Flame className="w-4 h-4" />
+            </div>
           </div>
-          <h4 className="text-xs font-bold text-slate-200">Sub-10s Parallel Latency</h4>
-          <p className="text-xs text-slate-400 leading-relaxed">
+          <h4 className="text-xs font-bold text-slate-900">Sub-10s Parallel Latency</h4>
+          <p className="text-xs text-slate-500 leading-relaxed">
             Concurrent worker pool generates 7 deliverables simultaneously.
           </p>
         </div>
 
-        <div className="p-5 rounded-2xl roopantar-card space-y-2 group hover:border-pink-500/40 transition-all">
+        <div className="p-5 rounded-2xl roopantar-card-white space-y-1.5 group hover:border-purple-300 transition-all">
           <div className="flex items-center justify-between">
-            <span className="text-2xl font-black text-white font-mono brand-gradient-text">7-in-1</span>
-            <Layers className="w-4 h-4 text-purple-400" />
+            <span className="text-2xl font-black text-slate-900 font-mono brand-gradient-text">7-in-1</span>
+            <div className="w-8 h-8 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center">
+              <Layers className="w-4 h-4" />
+            </div>
           </div>
-          <h4 className="text-xs font-bold text-slate-200">Enterprise Formats</h4>
-          <p className="text-xs text-slate-400 leading-relaxed">
+          <h4 className="text-xs font-bold text-slate-900">Enterprise Formats</h4>
+          <p className="text-xs text-slate-500 leading-relaxed">
             Native PowerPoint, Word, PDF, video storyboards, and social threads.
           </p>
         </div>

@@ -99,35 +99,32 @@ export const FileUploadZone: React.FC<FileUploadZoneProps> = ({
   const estTokens = Math.round((rawText.length || 0) / 4);
 
   return (
-    <div className="roopantar-card rounded-3xl p-6 sm:p-8 space-y-6 relative overflow-hidden group">
+    <div className="roopantar-card-white rounded-3xl p-6 sm:p-8 space-y-6 relative overflow-hidden group">
       
-      {/* Background ambient glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-pink-600/10 rounded-full blur-3xl pointer-events-none group-hover:bg-pink-600/15 transition-all" />
-
       {/* Header & Mode Switcher */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/[0.08] pb-5 relative z-10">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-5">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full roopantar-badge text-xs font-bold text-pink-300 mb-2">
-            <span className="flex items-center justify-center w-5 h-5 rounded-full bg-pink-500/20 text-pink-300 font-mono text-[11px]">01</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-xs font-bold text-pink-700 mb-2">
+            <span className="flex items-center justify-center w-5 h-5 rounded-full bg-pink-600 text-white font-mono text-[11px]">01</span>
             MULTI-MODAL INGESTION LAYER
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
             Source Intelligence & Content
           </h2>
-          <p className="text-xs sm:text-sm text-slate-400 mt-1">
+          <p className="text-xs sm:text-sm text-slate-500 mt-1">
             Upload document files (PDF/Word), audio/video streams, or direct prompts for single-pass analysis.
           </p>
         </div>
 
         {/* Input Mode Toggle */}
-        <div className="flex items-center gap-1.5 bg-white/[0.04] border border-white/[0.08] p-1.5 rounded-full self-start">
+        <div className="flex items-center gap-1.5 bg-slate-100 p-1.5 rounded-full self-start border border-slate-200/80">
           <button
             type="button"
             onClick={() => setActiveInputTab('text')}
             className={`px-4 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-2 ${
               activeInputTab === 'text'
-                ? 'roopantar-btn-primary shadow-sm'
-                : 'text-slate-400 hover:text-white'
+                ? 'roopantar-btn-primary shadow-xs'
+                : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             <FileCode className="w-3.5 h-3.5" />
@@ -138,8 +135,8 @@ export const FileUploadZone: React.FC<FileUploadZoneProps> = ({
             onClick={() => setActiveInputTab('file')}
             className={`px-4 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-2 ${
               activeInputTab === 'file'
-                ? 'roopantar-btn-primary shadow-sm'
-                : 'text-slate-400 hover:text-white'
+                ? 'roopantar-btn-primary shadow-xs'
+                : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             <UploadCloud className="w-3.5 h-3.5" />
@@ -149,22 +146,22 @@ export const FileUploadZone: React.FC<FileUploadZoneProps> = ({
       </div>
 
       {/* Preset Quick Loaders */}
-      <div className="flex flex-wrap items-center gap-2 relative z-10">
-        <span className="text-xs font-semibold text-slate-400 flex items-center gap-1.5 mr-1">
-          <Wand2 className="w-3.5 h-3.5 text-pink-400" />
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="text-xs font-semibold text-slate-500 flex items-center gap-1.5 mr-1">
+          <Wand2 className="w-3.5 h-3.5 text-purple-600" />
           Test Presets:
         </span>
         <button
           type="button"
           onClick={() => loadPreset(SAMPLE_CYBER_BRIEFING)}
-          className="text-xs px-3.5 py-1.5 rounded-full bg-white/[0.03] hover:bg-pink-500/15 border border-white/[0.08] hover:border-pink-500/40 text-slate-300 hover:text-white transition-all flex items-center gap-1.5"
+          className="text-xs px-3.5 py-1.5 rounded-full bg-slate-50 hover:bg-purple-50 border border-slate-200 hover:border-purple-300 text-slate-700 hover:text-purple-900 transition-all flex items-center gap-1.5 shadow-2xs"
         >
           🛡️ Security Incident Advisory
         </button>
         <button
           type="button"
           onClick={() => loadPreset(SAMPLE_FOOD_PRODUCT)}
-          className="text-xs px-3.5 py-1.5 rounded-full bg-white/[0.03] hover:bg-orange-500/15 border border-white/[0.08] hover:border-orange-500/40 text-slate-300 hover:text-white transition-all flex items-center gap-1.5"
+          className="text-xs px-3.5 py-1.5 rounded-full bg-slate-50 hover:bg-orange-50 border border-slate-200 hover:border-orange-300 text-slate-700 hover:text-orange-900 transition-all flex items-center gap-1.5 shadow-2xs"
         >
           🥗 Superfood Product Launch
         </button>
@@ -172,7 +169,7 @@ export const FileUploadZone: React.FC<FileUploadZoneProps> = ({
 
       {/* Upload Zone Tab */}
       {activeInputTab === 'file' ? (
-        <div className="relative z-10">
+        <div>
           <input
             ref={fileInputRef}
             type="file"
@@ -189,41 +186,41 @@ export const FileUploadZone: React.FC<FileUploadZoneProps> = ({
               onClick={() => fileInputRef.current?.click()}
               className={`border-2 border-dashed rounded-2xl p-10 text-center cursor-pointer transition-all ${
                 isDragging
-                  ? 'border-pink-500 bg-pink-500/10 shadow-[0_0_30px_rgba(236,72,153,0.2)]'
-                  : 'border-white/[0.12] hover:border-pink-500/50 bg-white/[0.02] hover:bg-white/[0.04]'
+                  ? 'border-pink-500 bg-pink-50/50 shadow-md'
+                  : 'border-slate-200 hover:border-pink-400 bg-slate-50/50 hover:bg-slate-50'
               }`}
             >
-              <div className="mx-auto w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-600/20 to-pink-500/20 border border-white/10 flex items-center justify-center text-pink-300 mb-3 shadow-[0_0_20px_rgba(236,72,153,0.2)]">
+              <div className="mx-auto w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-100 to-pink-100 border border-pink-200 flex items-center justify-center text-pink-600 mb-3 shadow-sm">
                 <UploadCloud className="w-7 h-7" />
               </div>
-              <p className="text-sm font-bold text-white">
-                Drag and drop your document here, or <span className="text-pink-400 underline decoration-pink-400/50 underline-offset-4">browse</span>
+              <p className="text-sm font-bold text-slate-900">
+                Drag and drop your document here, or <span className="text-pink-600 underline decoration-pink-300 underline-offset-4">browse</span>
               </p>
-              <p className="text-xs text-slate-400 mt-1.5 max-w-md mx-auto">
+              <p className="text-xs text-slate-500 mt-1.5 max-w-md mx-auto">
                 Supports PDF, DOCX, OCR images, and video/audio files (Groq Whisper-large-v3).
               </p>
 
-              <div className="flex flex-wrap items-center justify-center gap-3 mt-6 text-xs text-slate-300 font-medium">
-                <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.06]"><FileText className="w-3.5 h-3.5 text-blue-400" /> Documents</span>
-                <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.06]"><Image className="w-3.5 h-3.5 text-pink-400" /> Images</span>
-                <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.06]"><Video className="w-3.5 h-3.5 text-orange-400" /> Audio & Video</span>
+              <div className="flex flex-wrap items-center justify-center gap-3 mt-6 text-xs text-slate-600 font-medium">
+                <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 shadow-2xs"><FileText className="w-3.5 h-3.5 text-blue-500" /> Documents</span>
+                <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 shadow-2xs"><Image className="w-3.5 h-3.5 text-pink-500" /> Images</span>
+                <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 shadow-2xs"><Video className="w-3.5 h-3.5 text-orange-500" /> Audio & Video</span>
               </div>
             </div>
           ) : (
-            <div className="flex items-center justify-between p-4 rounded-2xl bg-white/[0.04] border border-pink-500/40 shadow-[0_0_25px_rgba(236,72,153,0.15)]">
+            <div className="flex items-center justify-between p-4 rounded-2xl bg-slate-50 border border-pink-200 shadow-xs">
               <div className="flex items-center gap-3.5">
-                <div className="w-11 h-11 rounded-xl bg-pink-500/20 text-pink-300 flex items-center justify-center font-bold border border-pink-500/30">
+                <div className="w-11 h-11 rounded-xl bg-pink-100 text-pink-700 flex items-center justify-center font-bold border border-pink-200">
                   <FileText className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white">{file.name}</h4>
-                  <p className="text-xs text-slate-400">{(file.size / (1024 * 1024)).toFixed(2)} MB • Ready for ingestion</p>
+                  <h4 className="text-sm font-bold text-slate-900">{file.name}</h4>
+                  <p className="text-xs text-slate-500">{(file.size / (1024 * 1024)).toFixed(2)} MB • Ready for ingestion</p>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => setFile(null)}
-                className="p-2 rounded-full text-slate-400 hover:text-rose-400 hover:bg-white/[0.06] transition-colors"
+                className="p-2 rounded-full text-slate-400 hover:text-rose-600 hover:bg-slate-200 transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -231,17 +228,17 @@ export const FileUploadZone: React.FC<FileUploadZoneProps> = ({
           )}
         </div>
       ) : (
-        <div className="relative z-10 space-y-2">
+        <div className="space-y-2">
           <textarea
             rows={8}
             value={rawText}
             onChange={(e) => setRawText(e.target.value)}
             placeholder="Paste your source intelligence, incident report, press release, product briefing, or prompt text here..."
-            className="w-full rounded-2xl bg-[#080B12] border border-white/[0.1] p-4 text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-pink-500/60 focus:border-pink-500 font-mono resize-y leading-relaxed shadow-inner"
+            className="w-full rounded-2xl bg-white border border-slate-200 p-4 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-pink-500/30 focus:border-pink-500 font-mono resize-y leading-relaxed shadow-inner"
           />
-          <div className="flex items-center justify-between text-xs text-slate-400 font-mono px-1">
-            <span>Character Count: <strong className="text-slate-200">{rawText.length}</strong></span>
-            <span>Est. Token Cost: <strong className="text-pink-400">~{estTokens}</strong></span>
+          <div className="flex items-center justify-between text-xs text-slate-500 font-mono px-1">
+            <span>Character Count: <strong className="text-slate-800">{rawText.length}</strong></span>
+            <span>Est. Token Cost: <strong className="text-pink-600">~{estTokens}</strong></span>
           </div>
         </div>
       )}

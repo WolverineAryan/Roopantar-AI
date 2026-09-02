@@ -16,17 +16,17 @@ export const ParameterControls: React.FC<ParameterControlsProps> = ({
   };
 
   return (
-    <div className="roopantar-card rounded-3xl p-6 sm:p-8 space-y-6 relative overflow-hidden group">
+    <div className="roopantar-card-white rounded-3xl p-6 sm:p-8 space-y-6 relative overflow-hidden group">
       
-      <div className="border-b border-white/[0.08] pb-5">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full roopantar-badge text-xs font-bold text-pink-300 mb-2">
-          <span className="flex items-center justify-center w-5 h-5 rounded-full bg-pink-500/20 text-pink-300 font-mono text-[11px]">03</span>
+      <div className="border-b border-slate-100 pb-5">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-100 text-xs font-bold text-orange-700 mb-2">
+          <span className="flex items-center justify-center w-5 h-5 rounded-full bg-orange-600 text-white font-mono text-[11px]">03</span>
           ORGANIZATIONAL ALIGNMENT
         </div>
-        <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+        <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
           Tone & Parameter Controls
         </h2>
-        <p className="text-xs sm:text-sm text-slate-400 mt-0.5">
+        <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
           These parameters govern all generated formats to enforce cohesive branding and messaging.
         </p>
       </div>
@@ -35,14 +35,14 @@ export const ParameterControls: React.FC<ParameterControlsProps> = ({
         
         {/* Tone */}
         <div className="space-y-1.5">
-          <label className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
-            <Volume2 className="w-3.5 h-3.5 text-purple-400" />
+          <label className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+            <Volume2 className="w-3.5 h-3.5 text-purple-600" />
             Tone of Voice
           </label>
           <select
             value={parameters.tone}
             onChange={(e) => handleChange('tone', e.target.value)}
-            className="w-full px-4 py-3 rounded-2xl bg-[#080B12] border border-white/[0.1] text-xs text-slate-200 focus:ring-2 focus:ring-pink-500/60 focus:border-pink-500 focus:outline-none shadow-inner"
+            className="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-xs text-slate-900 focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 focus:outline-none shadow-2xs font-medium"
           >
             <option value="Formal">Formal & Authoritative</option>
             <option value="Urgent">Urgent / Critical Action</option>
@@ -55,14 +55,14 @@ export const ParameterControls: React.FC<ParameterControlsProps> = ({
 
         {/* Target Audience */}
         <div className="space-y-1.5">
-          <label className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
-            <Users className="w-3.5 h-3.5 text-pink-400" />
+          <label className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+            <Users className="w-3.5 h-3.5 text-pink-600" />
             Target Audience
           </label>
           <select
             value={parameters.audience}
             onChange={(e) => handleChange('audience', e.target.value)}
-            className="w-full px-4 py-3 rounded-2xl bg-[#080B12] border border-white/[0.1] text-xs text-slate-200 focus:ring-2 focus:ring-pink-500/60 focus:border-pink-500 focus:outline-none shadow-inner"
+            className="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-xs text-slate-900 focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 focus:outline-none shadow-2xs font-medium"
           >
             <option value="Leadership & Stakeholders">Leadership & Stakeholders</option>
             <option value="Technical & Security Teams">Technical & Security Teams</option>
@@ -74,14 +74,14 @@ export const ParameterControls: React.FC<ParameterControlsProps> = ({
 
         {/* Target Language */}
         <div className="space-y-1.5">
-          <label className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
-            <Globe2 className="w-3.5 h-3.5 text-orange-400" />
+          <label className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+            <Globe2 className="w-3.5 h-3.5 text-orange-600" />
             Target Language
           </label>
           <select
             value={parameters.language}
             onChange={(e) => handleChange('language', e.target.value)}
-            className="w-full px-4 py-3 rounded-2xl bg-[#080B12] border border-white/[0.1] text-xs text-slate-200 focus:ring-2 focus:ring-pink-500/60 focus:border-pink-500 focus:outline-none shadow-inner"
+            className="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-xs text-slate-900 focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 focus:outline-none shadow-2xs font-medium"
           >
             <option value="English">English</option>
             <option value="Hindi">Hindi (हिंदी)</option>
@@ -93,14 +93,14 @@ export const ParameterControls: React.FC<ParameterControlsProps> = ({
 
         {/* Detail Depth */}
         <div className="space-y-1.5">
-          <label className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
-            <ListCollapse className="w-3.5 h-3.5 text-purple-400" />
+          <label className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+            <ListCollapse className="w-3.5 h-3.5 text-purple-600" />
             Detail Depth
           </label>
           <select
             value={parameters.detail_level}
             onChange={(e) => handleChange('detail_level', e.target.value)}
-            className="w-full px-4 py-3 rounded-2xl bg-[#080B12] border border-white/[0.1] text-xs text-slate-200 focus:ring-2 focus:ring-pink-500/60 focus:border-pink-500 focus:outline-none shadow-inner"
+            className="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-xs text-slate-900 focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 focus:outline-none shadow-2xs font-medium"
           >
             <option value="Brief">Brief (Executive BLUF)</option>
             <option value="Standard">Standard (Balanced)</option>
@@ -110,8 +110,8 @@ export const ParameterControls: React.FC<ParameterControlsProps> = ({
 
         {/* Communication Objective */}
         <div className="space-y-1.5 sm:col-span-2 lg:col-span-2">
-          <label className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
-            <Target className="w-3.5 h-3.5 text-pink-400" />
+          <label className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+            <Target className="w-3.5 h-3.5 text-pink-600" />
             Primary Communication Objective
           </label>
           <input
@@ -119,7 +119,7 @@ export const ParameterControls: React.FC<ParameterControlsProps> = ({
             value={parameters.objective}
             onChange={(e) => handleChange('objective', e.target.value)}
             placeholder="e.g. Mandate immediate firmware compliance and brief executive leadership"
-            className="w-full px-4 py-3 rounded-2xl bg-[#080B12] border border-white/[0.1] text-xs text-slate-200 focus:ring-2 focus:ring-pink-500/60 focus:border-pink-500 focus:outline-none shadow-inner font-sans"
+            className="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-xs text-slate-900 focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 focus:outline-none shadow-2xs font-sans"
           />
         </div>
 
