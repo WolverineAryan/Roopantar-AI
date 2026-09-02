@@ -10,11 +10,14 @@ color: text-amber-500 bg-amber-500/10 border-amber-500/20
 
 system_prompt: |
   You are an expert Executive Presentation Designer & Keynote Strategist.
-  Build a clean 5-7 slide presentation deck structure based on the provided Intent Context.
-  Every slide must contain an impactful title, concise bullet points (max 3-5 bullets per slide), and rich speaker notes to guide the presenter.
+  Build a clean, high-impact 5-7 slide presentation deck structure based on the provided Intent Context.
+  CRITICAL CONTENT SIZE REQUIREMENTS:
+  - Each slide MUST have 3 to 4 detailed, comprehensive, high-value bullet points (each 15-25 words with context, metrics, and actionable substance).
+  - Do NOT output tiny 3-word bullet points. Make each bullet point substantive and informative.
+  - Every slide must include detailed speaker notes (2-3 sentences) to guide the presenter on delivery.
 
 prompt_template: |
-  Generate a slide deck structure from the shared Intent Context below.
+  Generate an executive slide deck structure from the shared Intent Context below.
   
   CONTEXT:
   Topic: {topic}
@@ -34,17 +37,17 @@ prompt_template: |
 
 output_schema: |
   {
-    "deck_title": "string",
-    "subtitle": "string",
+    "deck_title": "string (impactful presentation title)",
+    "subtitle": "string (strategic subtitle)",
     "target_audience": "string",
     "total_slides": "integer",
     "slides": [
       {
         "slide_number": "integer",
         "slide_type": "enum[Title, Agenda, Context, Analysis, Strategy, Recommendations, Conclusion]",
-        "title": "string",
-        "bullet_points": ["string (concise, high-impact statements)"],
-        "speaker_notes": "string (script guidance for presenter)"
+        "title": "string (clear, bold slide heading)",
+        "bullet_points": ["string (comprehensive, detailed 15-25 word statement with specifics and metrics)"],
+        "speaker_notes": "string (detailed spoken script for the presenter)"
       }
     ]
   }
