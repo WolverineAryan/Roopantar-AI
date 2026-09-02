@@ -2,7 +2,13 @@ import axios from 'axios';
 import { FormatItem, Job, JobSummary, HealthStatus, GeneratedOutput, GenerationParams } from '../types';
 
 export const getBaseUrl = (): string => {
+  let stored = '';
+  if (typeof window !== 'undefined') {
+    stored = window.localStorage.getItem('roopantar_backend_url') || '';
+  }
+
   let raw = 
+    stored ||
     (typeof window !== 'undefined' && (window as any).__ENV?.NEXT_PUBLIC_API_BASE_URL) ||
     process.env.NEXT_PUBLIC_API_BASE_URL || 
     process.env.NEXT_PUBLIC_API_URL || 
@@ -21,11 +27,24 @@ export const getBaseUrl = (): string => {
   return raw;
 };
 
-const API_BASE = getBaseUrl();
+export const setCustomBackendUrl = (url: string) => {
+  if (typeof window !== 'undefined') {
+    if (!url.trim()) {
+      window.localStorage.removeItem('roopantar_backend_url');
+    } else {
+      window.localStorage.setItem('roopantar_backend_url', url.trim());
+    }
+  }
+};
 
 export const api = axios.create({
-  baseURL: API_BASE,
   timeout: 300000, // 5 minutes max timeout
+});
+
+// Dynamic interceptor to always use the active base URL
+api.interceptors.request.use((config) => {
+  config.baseURL = getBaseUrl();
+  return config;
 });
 
 export const checkHealth = async (): Promise<HealthStatus> => {
