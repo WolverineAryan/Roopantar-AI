@@ -57,11 +57,11 @@ async def run_api_tests():
         t0 = time.time()
         resp = await client.get("/api/formats")
         data = resp.json()
-        is_ok = resp.status_code == 200 and isinstance(data, list) and len(data) == 7
+        is_ok = resp.status_code == 200 and isinstance(data, list) and len(data) == 8
         dt = round((time.time() - t0) * 1000, 2)
         if is_ok: passed += 1
         prefix = "[PASS]" if is_ok else "[FAIL]"
-        print(f"{prefix} GET /api/formats -> HTTP {resp.status_code} ({dt}ms) -> Returned {len(data)}/7 Formats")
+        print(f"{prefix} GET /api/formats -> HTTP {resp.status_code} ({dt}ms) -> Returned {len(data)}/8 Formats")
         test_results.append({"endpoint": "GET /api/formats", "status_code": resp.status_code, "passed": is_ok, "latency_ms": dt, "count": len(data)})
 
         # 4. Job Creation & Multi-Format Generation Endpoint

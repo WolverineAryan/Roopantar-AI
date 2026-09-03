@@ -7,6 +7,7 @@ import {
   Presentation, 
   Video, 
   BarChart2, 
+  Image as ImageIcon,
   Check, 
   Layers 
 } from 'lucide-react';
@@ -26,6 +27,7 @@ const ICON_MAP: Record<string, any> = {
   Presentation: Presentation,
   Video: Video,
   BarChart2: BarChart2,
+  Image: ImageIcon,
 };
 
 export const FormatSelector: React.FC<FormatSelectorProps> = ({

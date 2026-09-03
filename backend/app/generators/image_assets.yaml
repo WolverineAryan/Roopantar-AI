@@ -1,0 +1,71 @@
+id: image_assets
+name: AI Visual Concept & Media Assets
+description: High-resolution visual concept art, keynote hero graphics, social banners, and 3D concept badges synthesized from intent context.
+category: Visual & Design
+export_formats:
+  - png
+  - zip
+  - json
+icon: Image
+color: text-pink-500 bg-pink-500/10 border-pink-500/20
+
+system_prompt: |
+  You are an expert AI Visual Art Director and Enterprise Creative Concept Designer.
+  Synthesize 3 distinct, photorealistic or modern 3D visual concept assets from the provided Intent Context.
+  For each asset, write a rich, highly descriptive generative image prompt (40-60 words) describing the subject, composition, lighting (e.g. volumetric, studio glow), art style (e.g. cinematic, 3D isometric glassmorphism, sleek tech editorial), and color mood matching the domain.
+  Also generate direct render URLs using Pollinations Flux: https://image.pollinations.ai/prompt/{URL_ENCODED_PROMPT}?width={W}&height={H}&nologo=true&seed={RANDOM_SEED}
+
+prompt_template: |
+  Design an executive visual media package based on the shared Intent Context below.
+
+  CONTEXT:
+  Topic: {topic}
+  Domain: {domain}
+  Summary: {summary}
+  Key Entities: {entities}
+  Key Facts: {facts}
+  Risk Flags: {risk_flags}
+  Action Points: {actions}
+
+  PARAMETERS:
+  Tone: {tone}
+  Target Audience: {audience}
+  Detail Level: {detail_level}
+  Objective: {objective}
+  Language: {language}
+
+output_schema: |
+  {
+    "title": "string (visual concept title)",
+    "visual_theme": "string (creative art direction theme)",
+    "color_palette": ["string (e.g. Electric Violet, Hot Pink, Cyber Orange, Dark Obsidian)"],
+    "assets": [
+      {
+        "asset_type": "presentation_hero",
+        "label": "Keynote Slide Hero Visual",
+        "aspect_ratio": "16:9",
+        "dimensions": "1280x720",
+        "image_prompt": "string (rich visual prompt: cinematic, clean composition, lighting, 8k resolution)",
+        "negative_prompt": "blurry, low quality, distorted, watermark, signature, text artifacts",
+        "image_url": "string (pollinations render URL)"
+      },
+      {
+        "asset_type": "social_banner",
+        "label": "LinkedIn & Social Media Featured Graphic",
+        "aspect_ratio": "1.91:1",
+        "dimensions": "1200x630",
+        "image_prompt": "string (editorial landscape banner prompt: modern 3D abstract geometric glass shapes, brand glow)",
+        "negative_prompt": "blurry, text, watermark, oversaturated, lowres",
+        "image_url": "string (pollinations render URL)"
+      },
+      {
+        "asset_type": "concept_icon",
+        "label": "3D Conceptual Spec Icon",
+        "aspect_ratio": "1:1",
+        "dimensions": "1024x1024",
+        "image_prompt": "string (isometric 3D icon on pure dark or frosted background, octane render, vivid translucent materials)",
+        "negative_prompt": "flat, 2d, watermark, blurry",
+        "image_url": "string (pollinations render URL)"
+      }
+    ]
+  }

@@ -110,7 +110,7 @@ class AutomationTestRunner:
         suite = "Generator Registry"
         expected_formats = [
             "advisory", "executive_summary", "linkedin", 
-            "twitter", "presentation", "video_package", "infographic"
+            "twitter", "presentation", "video_package", "infographic", "image_assets"
         ]
         
         t0 = time.time()
@@ -118,9 +118,9 @@ class AutomationTestRunner:
         self.record_test(
             suite, 
             "Load All Generator Templates", 
-            len(generators) == 7, 
+            len(generators) == 8, 
             (time.time() - t0) * 1000,
-            f"Loaded {len(generators)}/7 format templates from YAML.",
+            f"Loaded {len(generators)}/8 format templates from YAML.",
             {"loaded_ids": [g.id for g in generators]}
         )
 
@@ -178,7 +178,7 @@ class AutomationTestRunner:
         )
         params = GenerationParameters(tone="Formal", audience="Leadership & Stakeholders", language="English", detail_level="Standard")
 
-        formats = ["advisory", "executive_summary", "linkedin", "twitter", "presentation", "video_package", "infographic"]
+        formats = ["advisory", "executive_summary", "linkedin", "twitter", "presentation", "video_package", "infographic", "image_assets"]
         for fmt in formats:
             t0 = time.time()
             fallback = generate_fallback_content(fmt, ico, params)
@@ -336,7 +336,7 @@ class AutomationTestRunner:
                 source_filename="test_brief.txt",
                 source_file_type="text",
                 source_raw_text="Test source text for automated verification.",
-                selected_formats=["advisory", "executive_summary", "linkedin", "twitter", "presentation", "video_package", "infographic"],
+                selected_formats=["advisory", "executive_summary", "linkedin", "twitter", "presentation", "video_package", "infographic", "image_assets"],
                 parameters={"tone": "Formal", "audience": "Leadership"},
                 duration_seconds=1.25
             )
@@ -357,7 +357,7 @@ class AutomationTestRunner:
             session.add(intent_ctx)
             await session.commit()
             
-            # Add 7 outputs
+            # Add 8 outputs
             for fmt in job.selected_formats:
                 ico_dto = IntentContextDTO(**ico_data)
                 params_dto = GenerationParameters(tone="Formal", audience="Leadership")
@@ -378,13 +378,13 @@ class AutomationTestRunner:
             res = await session.execute(stmt)
             loaded_job = res.scalar_one_or_none()
             
-            is_e2e_valid = loaded_job is not None and len(loaded_job.outputs) == 7 and loaded_job.intent_context is not None
+            is_e2e_valid = loaded_job is not None and len(loaded_job.outputs) == 8 and loaded_job.intent_context is not None
             self.record_test(
                 suite,
-                "E2E Database Job Persistence & 7-Format Linking",
+                "E2E Database Job Persistence & 8-Format Linking",
                 is_e2e_valid,
                 (time.time() - t0) * 1000,
-                f"Job ID: {test_job_id}, Outputs Linked: {len(loaded_job.outputs) if loaded_job else 0}/7, ICO Topic: '{loaded_job.intent_context.topic if loaded_job and loaded_job.intent_context else ''}'"
+                f"Job ID: {test_job_id}, Outputs Linked: {len(loaded_job.outputs) if loaded_job else 0}/8, ICO Topic: '{loaded_job.intent_context.topic if loaded_job and loaded_job.intent_context else ''}'"
             )
 
 if __name__ == "__main__":

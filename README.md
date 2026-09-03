@@ -27,11 +27,11 @@ Traditional generative AI workflows repeatedly call large language models sequen
 Roopantar-AI solves this by introducing a **Single-Source-to-Multi-Deliverable Architecture**:
 1. **Multi-Modal Ingestion:** Ingest complex source materials (PDFs, DOCX, OCR images, direct prompts, or MP4/MP3 audio/video recordings).
 2. **Single-Pass Intent Extraction:** Extracts a single, unified **Intent Context Object (ICO)** capturing core facts, entities, risk flags, and actions (reducing token overhead by **>70%**).
-3. **Parallel Fan-Out Generation:** A concurrent worker pool simultaneously generates **7 enterprise-grade deliverables** with native file downloads in **~8 seconds**.
+3. **Parallel Fan-Out Generation:** A concurrent worker pool simultaneously generates **8 enterprise-grade deliverables** with native file downloads in **~8 seconds**.
 
 ---
 
-## 📦 7 Core Deliverables Matrix
+## 📦 8 Core Deliverables Matrix
 
 | # | Deliverable Format | Native Exports | Description & Capabilities |
 | :---: | :--- | :---: | :--- |
@@ -42,6 +42,7 @@ Roopantar-AI solves this by introducing a **Single-Source-to-Multi-Deliverable A
 | **5** | 🧵 **Twitter / X Thread** | Text / `.txt` | Numbered, viral 4-6 tweet thread, character-bounded with thread conclusions. |
 | **6** | 🎬 **Video Script & Storyboard** | `.docx`, `.pdf` | Scene-by-scene script with timestamp markers, visual directions, audio mood cues, and voiceover narration. |
 | **7** | 📈 **Infographic Blueprint** | `.pdf`, `.json` | Visual specification detailing key stat callouts, layout architecture, icon suggestions, and graphic designer tips. |
+| **8** | 🎨 **AI Visual Media Assets** | `.png`, `.zip`, `.json` | High-res keynote hero concepts, social media banners, and 3D concept spec badges powered by Flux.1 AI. |
 
 ---
 

@@ -32,6 +32,7 @@ from app.validators.schema_validator import generate_and_validate_format
 from app.exporters.pptx_exporter import export_presentation_to_pptx
 from app.exporters.docx_exporter import export_advisory_or_summary_to_docx
 from app.exporters.pdf_exporter import export_to_pdf
+from app.exporters.image_exporter import export_image_assets_to_zip
 
 logger = logging.getLogger(__name__)
 
@@ -85,6 +86,11 @@ async def export_format_file(job_id: str, format_type: str, content: Any) -> tup
                     f.write("\n\n---\n\n".join(tweets))
             return str(file_path_txt), "txt"
             
+        elif format_type == "image_assets":
+            zip_path = exports_dir / f"{job_id}_visual_assets.zip"
+            await export_image_assets_to_zip(content, zip_path)
+            return str(zip_path), "zip"
+            
         return None, None
     except Exception as e:
         logger.error(f"Error exporting file for {format_type}: {e}")
@@ -137,7 +143,7 @@ async def create_job(
         raise HTTPException(status_code=400, detail="No readable text could be extracted from the provided input.")
 
     # 2. Parse Formats and Parameters
-    formats_list = ["advisory", "executive_summary", "linkedin", "twitter", "presentation", "video_package", "infographic"]
+    formats_list = ["advisory", "executive_summary", "linkedin", "twitter", "presentation", "video_package", "infographic", "image_assets"]
     if selected_formats:
         try:
             formats_list = json.loads(selected_formats)

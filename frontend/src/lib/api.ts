@@ -77,6 +77,7 @@ export const getFormats = async (): Promise<FormatItem[]> => {
       { id: 'presentation', name: 'Presentation Slide Deck', description: 'Executive 16:9 widescreen PowerPoint deck with speaker notes.', category: 'Presentations & Media', export_formats: ['pptx', 'json'], icon: 'Presentation' },
       { id: 'video_package', name: 'Video Script & Storyboard', description: 'Scene-by-scene script with visual directions and voiceover narration.', category: 'Presentations & Media', export_formats: ['docx', 'pdf', 'json'], icon: 'Video' },
       { id: 'infographic', name: 'Infographic Architecture Spec', description: 'Visual blueprint specifying stat callouts and designer tips.', category: 'Visual & Design', export_formats: ['pdf', 'json'], icon: 'BarChart2' },
+      { id: 'image_assets', name: 'AI Visual Media Assets', description: 'High-resolution keynote hero concepts, social media banners, and 3D concept badges.', category: 'Visual & Design', export_formats: ['png', 'zip', 'json'], icon: 'Image' },
     ];
   }
 };

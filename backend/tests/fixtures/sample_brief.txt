@@ -1,0 +1,3 @@
+Executive Threat Intelligence Briefing.
+Incident: CTI-2026-8841.
+Target: Gateway firmware.

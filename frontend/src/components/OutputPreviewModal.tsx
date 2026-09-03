@@ -7,6 +7,7 @@ import {
   Presentation, 
   Video, 
   BarChart2, 
+  Image as ImageIcon,
   RotateCw, 
   Download,
   Sparkles
@@ -19,6 +20,7 @@ import { TwitterThreadCard } from './formats/TwitterThreadCard';
 import { PresentationCard } from './formats/PresentationCard';
 import { VideoPackageCard } from './formats/VideoPackageCard';
 import { InfographicCard } from './formats/InfographicCard';
+import { ImageAssetsCard } from './formats/ImageAssetsCard';
 
 interface OutputPreviewModalProps {
   job: Job;
@@ -34,6 +36,7 @@ const TAB_ICONS: Record<string, any> = {
   presentation: Presentation,
   video_package: Video,
   infographic: BarChart2,
+  image_assets: ImageIcon,
 };
 
 export const OutputPreviewModal: React.FC<OutputPreviewModalProps> = ({
@@ -75,27 +78,21 @@ export const OutputPreviewModal: React.FC<OutputPreviewModalProps> = ({
           })}
         </div>
 
-        {/* Format Specific Actions */}
-        <div className="flex items-center gap-3 shrink-0 self-start md:self-auto">
-          <button
-            type="button"
-            disabled={isRegenerating}
-            onClick={() => onRegenerateFormat(activeTab)}
-            className="px-4 py-2 rounded-full bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 text-xs font-bold flex items-center gap-2 transition-all disabled:opacity-50 shadow-2xs"
-          >
-            <RotateCw className={`w-3.5 h-3.5 text-pink-600 ${isRegenerating ? 'animate-spin' : ''}`} />
-            Regenerate Format
-          </button>
-        </div>
+        {/* Regenerate format action */}
+        <button
+          type="button"
+          onClick={() => onRegenerateFormat(activeTab)}
+          disabled={isRegenerating}
+          className="px-4 py-2 rounded-full text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center gap-1.5 transition-all self-start md:self-auto shrink-0"
+        >
+          <RotateCw className={`w-3.5 h-3.5 ${isRegenerating ? 'animate-spin' : ''}`} />
+          <span>{isRegenerating ? 'Regenerating...' : 'Regenerate Format'}</span>
+        </button>
       </div>
 
-      {/* Main Content Pane */}
-      <div className="min-h-[380px]">
-        {!currentOutput ? (
-          <div className="text-center py-20 text-slate-400 text-sm font-mono">
-            Format output not found or still generating...
-          </div>
-        ) : (
+      {/* Main Active Deliverable Viewer Stage */}
+      <div className="min-h-[400px]">
+        {currentOutput && (
           <div>
             {activeTab === 'advisory' && (
               <AdvisoryCard
@@ -144,6 +141,13 @@ export const OutputPreviewModal: React.FC<OutputPreviewModalProps> = ({
                 jobId={job.id}
                 data={currentOutput.content_json}
                 onRegenerate={() => onRegenerateFormat('infographic')}
+              />
+            )}
+            {activeTab === 'image_assets' && (
+              <ImageAssetsCard
+                jobId={job.id}
+                data={currentOutput.content_json}
+                onRegenerate={() => onRegenerateFormat('image_assets')}
               />
             )}
           </div>
