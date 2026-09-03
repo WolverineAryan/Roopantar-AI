@@ -1,6 +1,6 @@
 id: image_assets
 name: AI Visual Concept & Media Assets
-description: High-resolution visual concept art, keynote hero graphics, social banners, and 3D concept badges synthesized from intent context.
+description: High-resolution visual concept art, keynote hero graphics, 9:16 vertical reels graphics, social banners, and 3D concept badges powered by FLUX.1 Realism.
 category: Visual & Design
 export_formats:
   - png
@@ -11,9 +11,13 @@ color: text-pink-500 bg-pink-500/10 border-pink-500/20
 
 system_prompt: |
   You are an expert AI Visual Art Director and Enterprise Creative Concept Designer.
-  Synthesize 3 distinct, photorealistic or modern 3D visual concept assets from the provided Intent Context.
+  Synthesize 4 distinct, photorealistic or modern 3D visual concept assets from the provided Intent Context across multi-aspect ratios:
+  1. reels_vertical (9:16, 720x1280) for Instagram Reels, TikTok, YouTube Shorts
+  2. presentation_hero (16:9, 1280x720) for Keynote decks and YouTube
+  3. social_banner (1.91:1, 1200x630) for LinkedIn and Twitter/X landscape feeds
+  4. concept_icon (1:1, 1024x1024) for Instagram square feed and 3D concept branding
+
   For each asset, write a rich, highly descriptive generative image prompt (40-60 words) describing the subject, composition, lighting (e.g. volumetric, studio glow), art style (e.g. cinematic, 3D isometric glassmorphism, sleek tech editorial), and color mood matching the domain.
-  Also generate direct render URLs using Pollinations Flux: https://image.pollinations.ai/prompt/{URL_ENCODED_PROMPT}?width={W}&height={H}&nologo=true&seed={RANDOM_SEED}
 
 prompt_template: |
   Design an executive visual media package based on the shared Intent Context below.
@@ -38,34 +42,43 @@ output_schema: |
   {
     "title": "string (visual concept title)",
     "visual_theme": "string (creative art direction theme)",
-    "color_palette": ["string (e.g. Electric Violet, Hot Pink, Cyber Orange, Dark Obsidian)"],
+    "color_palette": ["string (e.g. Electric Violet, Hot Pink, Cyber Coral, Obsidian Dark)"],
     "assets": [
       {
+        "asset_type": "reels_vertical",
+        "label": "9:16 Vertical Reel & TikTok Visual",
+        "aspect_ratio": "9:16",
+        "dimensions": "720x1280",
+        "image_prompt": "string (vertical composition prompt: cinematic depth, centered subject, dynamic lighting, 8k)",
+        "negative_prompt": "blurry, low quality, distorted, watermark, signature, text artifacts",
+        "image_url": "string"
+      },
+      {
         "asset_type": "presentation_hero",
-        "label": "Keynote Slide Hero Visual",
+        "label": "16:9 Keynote & YouTube Visual",
         "aspect_ratio": "16:9",
         "dimensions": "1280x720",
-        "image_prompt": "string (rich visual prompt: cinematic, clean composition, lighting, 8k resolution)",
+        "image_prompt": "string (widescreen prompt: cinematic, clean composition, lighting, 8k resolution)",
         "negative_prompt": "blurry, low quality, distorted, watermark, signature, text artifacts",
-        "image_url": "string (pollinations render URL)"
+        "image_url": "string"
       },
       {
         "asset_type": "social_banner",
-        "label": "LinkedIn & Social Media Featured Graphic",
+        "label": "1.91:1 LinkedIn & X Landscape Banner",
         "aspect_ratio": "1.91:1",
         "dimensions": "1200x630",
         "image_prompt": "string (editorial landscape banner prompt: modern 3D abstract geometric glass shapes, brand glow)",
         "negative_prompt": "blurry, text, watermark, oversaturated, lowres",
-        "image_url": "string (pollinations render URL)"
+        "image_url": "string"
       },
       {
         "asset_type": "concept_icon",
-        "label": "3D Conceptual Spec Icon",
+        "label": "1:1 Square Feed & 3D Concept Icon",
         "aspect_ratio": "1:1",
         "dimensions": "1024x1024",
         "image_prompt": "string (isometric 3D icon on pure dark or frosted background, octane render, vivid translucent materials)",
         "negative_prompt": "flat, 2d, watermark, blurry",
-        "image_url": "string (pollinations render URL)"
+        "image_url": "string"
       }
     ]
   }

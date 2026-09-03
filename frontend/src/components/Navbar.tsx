@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Layers, Zap, Cpu, Sparkles, Link, Check, RefreshCw, X, AlertCircle } from 'lucide-react';
+import { Layers, Zap, Cpu, Sparkles, Link, Check, RefreshCw, X, AlertCircle, Megaphone } from 'lucide-react';
 import { HealthStatus } from '../types';
 import { getBaseUrl, setCustomBackendUrl, checkHealth } from '../lib/api';
 
 interface NavbarProps {
   health: HealthStatus | null;
   onNewJobClick: () => void;
-  activeTab: 'generator' | 'history';
-  setActiveTab: (tab: 'generator' | 'history') => void;
+  activeTab: 'generator' | 'marketing' | 'history';
+  setActiveTab: (tab: 'generator' | 'marketing' | 'history') => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ health, onNewJobClick, activeTab, setActiveTab }) => {
@@ -78,18 +78,29 @@ export const Navbar: React.FC<NavbarProps> = ({ health, onNewJobClick, activeTab
           <div className="flex items-center gap-1.5 bg-slate-100/90 p-1.5 rounded-full border border-slate-200/70 shadow-2xs">
             <button
               onClick={() => setActiveTab('generator')}
-              className={`px-5 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-2 ${
+              className={`px-4 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 ${
                 activeTab === 'generator'
                   ? 'roopantar-btn-primary shadow-sm'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-white/80'
               }`}
             >
               <Zap className="w-3.5 h-3.5 text-amber-300" />
-              Studio Workspace
+              Enterprise Studio
+            </button>
+            <button
+              onClick={() => setActiveTab('marketing')}
+              className={`px-4 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 ${
+                activeTab === 'marketing'
+                  ? 'roopantar-btn-primary shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/80'
+              }`}
+            >
+              <Megaphone className="w-3.5 h-3.5 text-pink-500" />
+              Marketing & Visuals
             </button>
             <button
               onClick={() => setActiveTab('history')}
-              className={`px-5 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-2 ${
+              className={`px-4 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 ${
                 activeTab === 'history'
                   ? 'roopantar-btn-primary shadow-sm'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-white/80'

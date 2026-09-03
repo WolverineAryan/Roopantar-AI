@@ -22,6 +22,7 @@ import { ParameterControls } from '@/components/ParameterControls';
 import { GenerationProgress } from '@/components/GenerationProgress';
 import { OutputPreviewModal } from '@/components/OutputPreviewModal';
 import { JobHistory } from '@/components/JobHistory';
+import { MarketingStudio } from '@/components/MarketingStudio';
 
 import { 
   FormatItem, 
@@ -40,7 +41,7 @@ import {
 export default function Home() {
   const [health, setHealth] = useState<HealthStatus | null>(null);
   const [formats, setFormats] = useState<FormatItem[]>([]);
-  const [activeTab, setActiveTab] = useState<'generator' | 'history'>('generator');
+  const [activeTab, setActiveTab] = useState<'generator' | 'marketing' | 'history'>('generator');
   
   // Ingestion State
   const [file, setFile] = useState<File | null>(null);
@@ -291,6 +292,9 @@ export default function Home() {
             )}
 
           </div>
+        ) : activeTab === 'marketing' ? (
+          /* Dedicated Social Media & Marketing Studio */
+          <MarketingStudio />
         ) : (
           /* Audit History View */
           <JobHistory onSelectJob={handleSelectPastJob} />

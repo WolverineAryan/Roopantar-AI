@@ -162,43 +162,60 @@ def normalize_and_validate_format_data(format_id: str, data: Dict[str, Any], ico
         if "color_palette" not in data or not isinstance(data.get("color_palette"), list):
             data["color_palette"] = ["#7C3AED (Electric Purple)", "#EC4899 (Radiant Pink)", "#F97316 (Coral Orange)", "#0F172A (Deep Slate)"]
         if "assets" not in data or not isinstance(data.get("assets"), list) or len(data.get("assets", [])) == 0:
+            p0 = f"Vertical 9:16 mobile visual composition for {ico.topic}, domain {ico.domain}, centered subject, cinematic volumetric lighting, 8k resolution, crisp detail"
             p1 = f"Futuristic high-tech 3D keynote presentation hero image depicting {ico.topic}, domain {ico.domain}, sleek enterprise aesthetic, volumetric lighting, 8k resolution, octane render"
             p2 = f"Modern 16:9 social media graphic banner for {ico.topic}, abstract geometric glass materials, glowing violet and coral gradients, professional editorial design"
             p3 = f"Isometric 3D concept badge for {ico.topic}, frosted translucent glass, vibrant neon reflections, studio lighting on dark background"
             data["assets"] = [
                 {
+                    "asset_type": "reels_vertical",
+                    "label": "9:16 Vertical Reel & TikTok Visual",
+                    "aspect_ratio": "9:16",
+                    "dimensions": "720x1280",
+                    "image_prompt": p0,
+                    "negative_prompt": "blurry, text, watermark, low quality, oversaturated",
+                    "image_url": build_pollinations_url(p0, 720, 1280, style="photorealistic")
+                },
+                {
                     "asset_type": "presentation_hero",
-                    "label": "Keynote Slide Hero Visual",
+                    "label": "16:9 Keynote Slide Hero Visual",
                     "aspect_ratio": "16:9",
                     "dimensions": "1280x720",
                     "image_prompt": p1,
                     "negative_prompt": "blurry, text, watermark, low quality, oversaturated",
-                    "image_url": build_pollinations_url(p1, 1280, 720)
+                    "image_url": build_pollinations_url(p1, 1280, 720, style="photorealistic")
                 },
                 {
                     "asset_type": "social_banner",
-                    "label": "LinkedIn & Social Media Featured Graphic",
+                    "label": "1.91:1 LinkedIn & Social Media Featured Graphic",
                     "aspect_ratio": "1.91:1",
                     "dimensions": "1200x630",
                     "image_prompt": p2,
                     "negative_prompt": "blurry, lowres, text, watermark",
-                    "image_url": build_pollinations_url(p2, 1200, 630)
+                    "image_url": build_pollinations_url(p2, 1200, 630, style="glassmorphism_3d")
                 },
                 {
                     "asset_type": "concept_icon",
-                    "label": "3D Conceptual Spec Icon",
+                    "label": "1:1 3D Conceptual Spec Icon",
                     "aspect_ratio": "1:1",
                     "dimensions": "1024x1024",
                     "image_prompt": p3,
                     "negative_prompt": "flat, 2d, watermark, blurry",
-                    "image_url": build_pollinations_url(p3, 1024, 1024)
+                    "image_url": build_pollinations_url(p3, 1024, 1024, style="glassmorphism_3d")
                 }
             ]
         else:
             for item in data.get("assets", []):
                 if isinstance(item, dict) and not item.get("image_url") and item.get("image_prompt"):
-                    w = 1280 if item.get("aspect_ratio") == "16:9" else (1200 if item.get("aspect_ratio") == "1.91:1" else 1024)
-                    h = 720 if item.get("aspect_ratio") == "16:9" else (630 if item.get("aspect_ratio") == "1.91:1" else 1024)
+                    ar = item.get("aspect_ratio", "16:9")
+                    if ar == "9:16":
+                        w, h = 720, 1280
+                    elif ar == "1.91:1":
+                        w, h = 1200, 630
+                    elif ar == "1:1":
+                        w, h = 1024, 1024
+                    else:
+                        w, h = 1280, 720
                     item["image_url"] = build_pollinations_url(item["image_prompt"], w, h)
             
     return data
@@ -408,6 +425,7 @@ def generate_fallback_content(format_id: str, ico: IntentContextDTO, params: Gen
         }
     elif format_id == "image_assets":
         from app.llm.image_client import build_pollinations_url
+        p0 = f"Vertical 9:16 mobile visual composition for {ico.topic}, domain {ico.domain}, centered subject, cinematic volumetric lighting, 8k resolution, crisp detail"
         p1 = f"Futuristic high-tech 3D keynote presentation hero image depicting {ico.topic}, domain {ico.domain}, sleek enterprise aesthetic, volumetric lighting, 8k resolution, octane render"
         p2 = f"Modern 16:9 social media graphic banner for {ico.topic}, abstract geometric glass materials, glowing violet and coral gradients, professional editorial design"
         p3 = f"Isometric 3D concept badge for {ico.topic}, frosted translucent glass, vibrant neon reflections, studio lighting on dark background"
@@ -417,31 +435,40 @@ def generate_fallback_content(format_id: str, ico: IntentContextDTO, params: Gen
             "color_palette": ["#7C3AED (Electric Purple)", "#EC4899 (Radiant Pink)", "#F97316 (Coral Orange)", "#0F172A (Deep Slate)"],
             "assets": [
                 {
+                    "asset_type": "reels_vertical",
+                    "label": "9:16 Vertical Reel & TikTok Visual",
+                    "aspect_ratio": "9:16",
+                    "dimensions": "720x1280",
+                    "image_prompt": p0,
+                    "negative_prompt": "blurry, text, watermark, low quality, oversaturated",
+                    "image_url": build_pollinations_url(p0, 720, 1280, style="photorealistic")
+                },
+                {
                     "asset_type": "presentation_hero",
-                    "label": "Keynote Slide Hero Visual",
+                    "label": "16:9 Keynote Slide Hero Visual",
                     "aspect_ratio": "16:9",
                     "dimensions": "1280x720",
                     "image_prompt": p1,
                     "negative_prompt": "blurry, text, watermark, low quality, oversaturated",
-                    "image_url": build_pollinations_url(p1, 1280, 720)
+                    "image_url": build_pollinations_url(p1, 1280, 720, style="photorealistic")
                 },
                 {
                     "asset_type": "social_banner",
-                    "label": "LinkedIn & Social Media Featured Graphic",
+                    "label": "1.91:1 LinkedIn & Social Media Featured Graphic",
                     "aspect_ratio": "1.91:1",
                     "dimensions": "1200x630",
                     "image_prompt": p2,
                     "negative_prompt": "blurry, lowres, text, watermark",
-                    "image_url": build_pollinations_url(p2, 1200, 630)
+                    "image_url": build_pollinations_url(p2, 1200, 630, style="glassmorphism_3d")
                 },
                 {
                     "asset_type": "concept_icon",
-                    "label": "3D Conceptual Spec Icon",
+                    "label": "1:1 3D Conceptual Spec Icon",
                     "aspect_ratio": "1:1",
                     "dimensions": "1024x1024",
                     "image_prompt": p3,
                     "negative_prompt": "flat, 2d, watermark, blurry",
-                    "image_url": build_pollinations_url(p3, 1024, 1024)
+                    "image_url": build_pollinations_url(p3, 1024, 1024, style="glassmorphism_3d")
                 }
             ]
         }
