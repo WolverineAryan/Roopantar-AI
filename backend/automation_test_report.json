@@ -4,8 +4,8 @@
     "passed": 25,
     "failed": 0,
     "pass_rate_pct": 100.0,
-    "total_duration_seconds": 0.14,
-    "timestamp": "2026-09-03 19:52:45"
+    "total_duration_seconds": 0.19,
+    "timestamp": "2026-09-03 20:05:40"
   },
   "test_results": [
     {
@@ -13,7 +13,7 @@
       "test_name": "Database Initialization & Async Session Connect",
       "status": "PASSED",
       "passed": true,
-      "duration_ms": 14.74,
+      "duration_ms": 24.7,
       "details": "SQLite aiosqlite connection verified.",
       "metadata": {}
     },
@@ -22,7 +22,7 @@
       "test_name": "Load All Generator Templates",
       "status": "PASSED",
       "passed": true,
-      "duration_ms": 12.73,
+      "duration_ms": 24.62,
       "details": "Loaded 8/8 format templates from YAML.",
       "metadata": {
         "loaded_ids": [
@@ -42,7 +42,7 @@
       "test_name": "Validate Format Config [advisory]",
       "status": "PASSED",
       "passed": true,
-      "duration_ms": 0.0,
+      "duration_ms": 0.01,
       "details": "Name: 'Technical / Threat Advisory', Category: 'Security & Governance', Exports: ['docx', 'pdf', 'json']",
       "metadata": {}
     },
@@ -114,7 +114,7 @@
       "test_name": "Intent Context Object (ICO) Pydantic Schema Validation",
       "status": "PASSED",
       "passed": true,
-      "duration_ms": 0.03,
+      "duration_ms": 0.04,
       "details": "Extracted Topic: 'Strategic Operational Analysis & Directives', Entities: 4, Facts: 4",
       "metadata": {}
     },
@@ -123,7 +123,7 @@
       "test_name": "Schema Validation & Normalization [advisory]",
       "status": "PASSED",
       "passed": true,
-      "duration_ms": 0.03,
+      "duration_ms": 0.05,
       "details": "Keys Verified: ['title', 'advisory_id', 'severity']...",
       "metadata": {}
     },
@@ -132,7 +132,7 @@
       "test_name": "Schema Validation & Normalization [executive_summary]",
       "status": "PASSED",
       "passed": true,
-      "duration_ms": 0.01,
+      "duration_ms": 0.02,
       "details": "Keys Verified: ['title', 'strategic_context', 'bottom_line_up_front']...",
       "metadata": {}
     },
@@ -141,7 +141,7 @@
       "test_name": "Schema Validation & Normalization [linkedin]",
       "status": "PASSED",
       "passed": true,
-      "duration_ms": 0.01,
+      "duration_ms": 0.02,
       "details": "Keys Verified: ['headline_hook', 'body_paragraphs', 'key_takeaways']...",
       "metadata": {}
     },
@@ -150,7 +150,7 @@
       "test_name": "Schema Validation & Normalization [twitter]",
       "status": "PASSED",
       "passed": true,
-      "duration_ms": 0.01,
+      "duration_ms": 0.03,
       "details": "Keys Verified: ['thread_topic', 'total_tweets', 'tweets']...",
       "metadata": {}
     },
@@ -177,7 +177,7 @@
       "test_name": "Schema Validation & Normalization [infographic]",
       "status": "PASSED",
       "passed": true,
-      "duration_ms": 0.0,
+      "duration_ms": 0.01,
       "details": "Keys Verified: ['infographic_title', 'subtitle', 'recommended_layout']...",
       "metadata": {}
     },
@@ -186,7 +186,7 @@
       "test_name": "Schema Validation & Normalization [image_assets]",
       "status": "PASSED",
       "passed": true,
-      "duration_ms": 0.99,
+      "duration_ms": 2.17,
       "details": "Keys Verified: ['title', 'visual_theme', 'color_palette']...",
       "metadata": {}
     },
@@ -195,7 +195,7 @@
       "test_name": "Plain Text / Markdown Ingestion",
       "status": "PASSED",
       "passed": true,
-      "duration_ms": 1.92,
+      "duration_ms": 4.45,
       "details": "Extracted 90 chars, Type: text",
       "metadata": {}
     },
@@ -204,7 +204,7 @@
       "test_name": "Audio/Video Media Ingestion & Whisper Fallback",
       "status": "PASSED",
       "passed": true,
-      "duration_ms": 0.56,
+      "duration_ms": 1.03,
       "details": "Generated transcript: VIDEO/AUDIO INTELLIGENCE TRANSCRIPT: Sample Recording\n\n1. SP...",
       "metadata": {}
     },
@@ -213,7 +213,7 @@
       "test_name": "PowerPoint (.PPTX) 16:9 Deck Generator",
       "status": "PASSED",
       "passed": true,
-      "duration_ms": 29.91,
+      "duration_ms": 37.92,
       "details": "File: test_presentation.pptx (36043 bytes)",
       "metadata": {}
     },
@@ -222,7 +222,7 @@
       "test_name": "Word (.DOCX) Advisory Document Generator",
       "status": "PASSED",
       "passed": true,
-      "duration_ms": 32.09,
+      "duration_ms": 27.22,
       "details": "File: test_advisory.docx (35897 bytes)",
       "metadata": {}
     },
@@ -231,7 +231,7 @@
       "test_name": "PDF Document Generator (ReportLab)",
       "status": "PASSED",
       "passed": true,
-      "duration_ms": 6.52,
+      "duration_ms": 7.37,
       "details": "File: test_summary.pdf (2320 bytes)",
       "metadata": {}
     },
@@ -240,8 +240,8 @@
       "test_name": "E2E Database Job Persistence & 8-Format Linking",
       "status": "PASSED",
       "passed": true,
-      "duration_ms": 40.44,
-      "details": "Job ID: test-job-1788445365, Outputs Linked: 8/8, ICO Topic: 'Automated Testing Verification'",
+      "duration_ms": 59.24,
+      "details": "Job ID: test-job-1788446140, Outputs Linked: 8/8, ICO Topic: 'Automated Testing Verification'",
       "metadata": {}
     }
   ]

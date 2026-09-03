@@ -78,3 +78,18 @@ export interface HealthStatus {
   };
   mode: string;
 }
+
+export interface MarketingProject {
+  id: string;
+  name: string;
+  brand_or_product: string;
+  campaign_goal: string;
+  target_channels: string[];
+  visual_style: string;
+  brief: string;
+  created_at: string;
+  status: 'draft' | 'generating' | 'completed';
+  job_id?: string;
+  job?: Job;
+}
+
