@@ -37,10 +37,19 @@ logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/jobs", tags=["Jobs"])
 
-async def export_format_file(job_id: str, format_type: str, content: dict) -> tuple[Optional[str], Optional[str]]:
+async def export_format_file(job_id: str, format_type: str, content: Any) -> tuple[Optional[str], Optional[str]]:
     """Generates real downloadable export files based on format type."""
     exports_dir = settings.exports_dir / job_id
     exports_dir.mkdir(parents=True, exist_ok=True)
+    
+    if isinstance(content, str):
+        try:
+            content = json.loads(content)
+        except Exception:
+            content = {}
+            
+    if not isinstance(content, dict):
+        content = {}
     
     try:
         if format_type == "presentation":

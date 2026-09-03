@@ -1,0 +1,229 @@
+{
+  "summary": {
+    "total_tests": 23,
+    "passed": 23,
+    "failed": 0,
+    "pass_rate_pct": 100.0,
+    "total_duration_seconds": 0.22,
+    "timestamp": "2026-09-03 19:17:17"
+  },
+  "test_results": [
+    {
+      "suite": "Database & Async Engine",
+      "test_name": "Database Initialization & Async Session Connect",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 34.66,
+      "details": "SQLite aiosqlite connection verified.",
+      "metadata": {}
+    },
+    {
+      "suite": "Generator Registry",
+      "test_name": "Load All Generator Templates",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 12.97,
+      "details": "Loaded 7/7 format templates from YAML.",
+      "metadata": {
+        "loaded_ids": [
+          "advisory",
+          "executive_summary",
+          "infographic",
+          "linkedin",
+          "presentation",
+          "twitter",
+          "video_package"
+        ]
+      }
+    },
+    {
+      "suite": "Generator Registry",
+      "test_name": "Validate Format Config [advisory]",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 0.0,
+      "details": "Name: 'Technical / Threat Advisory', Category: 'Security & Governance', Exports: ['docx', 'pdf', 'json']",
+      "metadata": {}
+    },
+    {
+      "suite": "Generator Registry",
+      "test_name": "Validate Format Config [executive_summary]",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 0.0,
+      "details": "Name: 'Executive Summary', Category: 'Briefings & Reports', Exports: ['docx', 'pdf', 'json']",
+      "metadata": {}
+    },
+    {
+      "suite": "Generator Registry",
+      "test_name": "Validate Format Config [linkedin]",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 0.0,
+      "details": "Name: 'LinkedIn Post', Category: 'Social & Outreach', Exports: ['txt', 'json']",
+      "metadata": {}
+    },
+    {
+      "suite": "Generator Registry",
+      "test_name": "Validate Format Config [twitter]",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 0.0,
+      "details": "Name: 'Twitter / X Thread', Category: 'Social & Outreach', Exports: ['txt', 'json']",
+      "metadata": {}
+    },
+    {
+      "suite": "Generator Registry",
+      "test_name": "Validate Format Config [presentation]",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 0.0,
+      "details": "Name: 'Presentation Slide Deck (.pptx)', Category: 'Presentations & Media', Exports: ['pptx', 'json']",
+      "metadata": {}
+    },
+    {
+      "suite": "Generator Registry",
+      "test_name": "Validate Format Config [video_package]",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 0.0,
+      "details": "Name: 'Video Script & Storyboard Package', Category: 'Presentations & Media', Exports: ['docx', 'pdf', 'json']",
+      "metadata": {}
+    },
+    {
+      "suite": "Generator Registry",
+      "test_name": "Validate Format Config [infographic]",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 0.0,
+      "details": "Name: 'Infographic Architecture Spec', Category: 'Visual & Design', Exports: ['json', 'pdf', 'txt']",
+      "metadata": {}
+    },
+    {
+      "suite": "Intent Engine & ICO",
+      "test_name": "Intent Context Object (ICO) Pydantic Schema Validation",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 0.03,
+      "details": "Extracted Topic: 'Strategic Operational Analysis & Directives', Entities: 4, Facts: 4",
+      "metadata": {}
+    },
+    {
+      "suite": "Schema Validators & Alias Normalizers",
+      "test_name": "Schema Validation & Normalization [advisory]",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 0.04,
+      "details": "Keys Verified: ['title', 'advisory_id', 'severity']...",
+      "metadata": {}
+    },
+    {
+      "suite": "Schema Validators & Alias Normalizers",
+      "test_name": "Schema Validation & Normalization [executive_summary]",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 0.01,
+      "details": "Keys Verified: ['title', 'strategic_context', 'bottom_line_up_front']...",
+      "metadata": {}
+    },
+    {
+      "suite": "Schema Validators & Alias Normalizers",
+      "test_name": "Schema Validation & Normalization [linkedin]",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 0.01,
+      "details": "Keys Verified: ['headline_hook', 'body_paragraphs', 'key_takeaways']...",
+      "metadata": {}
+    },
+    {
+      "suite": "Schema Validators & Alias Normalizers",
+      "test_name": "Schema Validation & Normalization [twitter]",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 0.02,
+      "details": "Keys Verified: ['thread_topic', 'total_tweets', 'tweets']...",
+      "metadata": {}
+    },
+    {
+      "suite": "Schema Validators & Alias Normalizers",
+      "test_name": "Schema Validation & Normalization [presentation]",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 0.01,
+      "details": "Keys Verified: ['deck_title', 'subtitle', 'target_audience']...",
+      "metadata": {}
+    },
+    {
+      "suite": "Schema Validators & Alias Normalizers",
+      "test_name": "Schema Validation & Normalization [video_package]",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 0.01,
+      "details": "Keys Verified: ['video_title', 'target_duration', 'target_format']...",
+      "metadata": {}
+    },
+    {
+      "suite": "Schema Validators & Alias Normalizers",
+      "test_name": "Schema Validation & Normalization [infographic]",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 0.01,
+      "details": "Keys Verified: ['infographic_title', 'subtitle', 'recommended_layout']...",
+      "metadata": {}
+    },
+    {
+      "suite": "Multi-Modal Ingestion Pipeline",
+      "test_name": "Plain Text / Markdown Ingestion",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 4.24,
+      "details": "Extracted 90 chars, Type: text",
+      "metadata": {}
+    },
+    {
+      "suite": "Multi-Modal Ingestion Pipeline",
+      "test_name": "Audio/Video Media Ingestion & Whisper Fallback",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 0.92,
+      "details": "Generated transcript: VIDEO/AUDIO INTELLIGENCE TRANSCRIPT: Sample Recording\n\n1. SP...",
+      "metadata": {}
+    },
+    {
+      "suite": "Native Document Exporters",
+      "test_name": "PowerPoint (.PPTX) 16:9 Deck Generator",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 41.3,
+      "details": "File: test_presentation.pptx (36043 bytes)",
+      "metadata": {}
+    },
+    {
+      "suite": "Native Document Exporters",
+      "test_name": "Word (.DOCX) Advisory Document Generator",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 47.35,
+      "details": "File: test_advisory.docx (35897 bytes)",
+      "metadata": {}
+    },
+    {
+      "suite": "Native Document Exporters",
+      "test_name": "PDF Document Generator (ReportLab)",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 11.17,
+      "details": "File: test_summary.pdf (2335 bytes)",
+      "metadata": {}
+    },
+    {
+      "suite": "End-to-End Fan-Out Transformation Engine",
+      "test_name": "E2E Database Job Persistence & 7-Format Linking",
+      "status": "PASSED",
+      "passed": true,
+      "duration_ms": 59.19,
+      "details": "Job ID: test-job-1788443237, Outputs Linked: 7/7, ICO Topic: 'Automated Testing Verification'",
+      "metadata": {}
+    }
+  ]
+}

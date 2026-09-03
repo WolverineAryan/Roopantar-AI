@@ -6,6 +6,9 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.enum.table import WD_TABLE_ALIGNMENT
 
 def export_advisory_or_summary_to_docx(format_id: str, content: Dict[str, Any], output_path: Path) -> Path:
+    if not isinstance(content, dict):
+        content = {}
+        
     doc = Document()
     
     # Page setup - 1 inch margins
@@ -43,19 +46,22 @@ def export_advisory_or_summary_to_docx(format_id: str, content: Dict[str, Any], 
             
         # Summary
         doc.add_heading("1. Executive Overview", level=1)
-        doc.add_paragraph(content.get("summary", ""))
+        doc.add_paragraph(str(content.get("summary", "")))
         
         # Threat / Issue Breakdown
         doc.add_heading("2. Threat & Technical Analysis", level=1)
         for item in content.get("threat_or_issue_breakdown", []):
             p = doc.add_paragraph()
-            r_h = p.add_run(f"• {item.get('heading', 'Finding')}: ")
-            r_h.bold = True
-            p.add_run(item.get("details", ""))
+            if isinstance(item, dict):
+                r_h = p.add_run(f"• {item.get('heading', 'Finding')}: ")
+                r_h.bold = True
+                p.add_run(str(item.get("details", "")))
+            else:
+                p.add_run(f"• {str(item)}")
             
         # Impact
         doc.add_heading("3. Operational Impact Assessment", level=1)
-        doc.add_paragraph(content.get("impact_assessment", ""))
+        doc.add_paragraph(str(content.get("impact_assessment", "")))
         
         # Recommended Actions
         doc.add_heading("4. Recommended Mitigations & Action Items", level=1)
@@ -68,9 +74,14 @@ def export_advisory_or_summary_to_docx(format_id: str, content: Dict[str, Any], 
         
         for action in content.get("recommended_actions", []):
             row_cells = table.add_row().cells
-            row_cells[0].text = action.get("priority", "Immediate")
-            row_cells[1].text = action.get("target_team", "Operations")
-            row_cells[2].text = action.get("action", "")
+            if isinstance(action, dict):
+                row_cells[0].text = str(action.get("priority", "Immediate"))
+                row_cells[1].text = str(action.get("target_team", "Operations"))
+                row_cells[2].text = str(action.get("action", ""))
+            else:
+                row_cells[0].text = "Immediate"
+                row_cells[1].text = "SecOps"
+                row_cells[2].text = str(action)
             
         # References
         if content.get("references"):
@@ -79,51 +90,56 @@ def export_advisory_or_summary_to_docx(format_id: str, content: Dict[str, Any], 
                 doc.add_paragraph(f"[{ref}]")
 
     elif format_id == "executive_summary":
-        # Executive Summary docx
         doc.add_heading("1. Strategic Context", level=1)
-        doc.add_paragraph(content.get("strategic_context", ""))
+        doc.add_paragraph(str(content.get("strategic_context", "")))
         
         doc.add_heading("2. Bottom Line Up Front (BLUF)", level=1)
         bluf_p = doc.add_paragraph()
-        r_bluf = bluf_p.add_run(content.get("bottom_line_up_front", ""))
+        r_bluf = bluf_p.add_run(str(content.get("bottom_line_up_front", "")))
         r_bluf.bold = True
         
         doc.add_heading("3. Key Findings & Mission Impact", level=1)
         for finding in content.get("key_findings", []):
             p = doc.add_paragraph()
-            p.add_run(f"• Area: {finding.get('area', '')}\n").bold = True
-            p.add_run(f"  Observation: {finding.get('observation', '')}\n")
-            p.add_run(f"  Impact: {finding.get('business_or_mission_impact', '')}\n")
+            if isinstance(finding, dict):
+                p.add_run(f"• Area: {finding.get('area', '')}\n").bold = True
+                p.add_run(f"  Observation: {finding.get('observation', '')}\n")
+                p.add_run(f"  Impact: {finding.get('business_or_mission_impact', '')}\n")
+            else:
+                p.add_run(f"• Finding: {str(finding)}\n")
             
         doc.add_heading("4. Decisions Required", level=1)
         for dec in content.get("decision_and_action_requirements", []):
             p = doc.add_paragraph()
-            p.add_run(f"• Decision: {dec.get('decision_needed', '')} (Owner: {dec.get('stakeholder', '')} | Timeline: {dec.get('timeline', '')})")
+            if isinstance(dec, dict):
+                p.add_run(f"• Decision: {dec.get('decision_needed', '')} (Owner: {dec.get('stakeholder', '')} | Timeline: {dec.get('timeline', '')})")
+            else:
+                p.add_run(f"• Decision: {str(dec)}")
             
         doc.add_heading("5. Resource Implications", level=1)
-        doc.add_paragraph(content.get("resource_implications", ""))
+        doc.add_paragraph(str(content.get("resource_implications", "")))
 
     elif format_id == "video_package":
-        # Video script docx
         doc.add_heading(f"Format: {content.get('target_format', '16:9')} | Duration: {content.get('target_duration', '90s')}", level=2)
         doc.add_paragraph(f"Logline: {content.get('logline', '')}").italic = True
         
         doc.add_heading("Scene-by-Scene Script & Storyboard", level=1)
         for scene in content.get("scenes", []):
             p = doc.add_paragraph()
-            p.add_run(f"Scene {scene.get('scene_number')}: {scene.get('scene_name')} [{scene.get('timestamp_marker', '')}]\n").bold = True
-            p.add_run(f"Visual: {scene.get('visual_description', '')}\n")
-            p.add_run(f"Voiceover: \"{scene.get('narration_voiceover', '')}\"\n")
-            p.add_run(f"On-Screen: {scene.get('on_screen_text', '')}\n")
-            p.add_run(f"Audio Mood: {scene.get('audio_mood', '')}\n")
+            if isinstance(scene, dict):
+                p.add_run(f"Scene {scene.get('scene_number', 1)}: {scene.get('scene_name', 'Scene')} [{scene.get('timestamp_marker', '')}]\n").bold = True
+                p.add_run(f"Visual: {scene.get('visual_description', '')}\n")
+                p.add_run(f"Voiceover: \"{scene.get('narration_voiceover', '')}\"\n")
+                p.add_run(f"On-Screen: {scene.get('on_screen_text', '')}\n")
+                p.add_run(f"Audio Mood: {scene.get('audio_mood', '')}\n")
+            else:
+                p.add_run(f"Scene: {str(scene)}\n")
 
     else:
-        # Generic document
-        doc.add_heading("Generated Output Overview", level=1)
         for k, v in content.items():
-            doc.add_heading(k.replace('_', ' ').title(), level=2)
+            doc.add_heading(k.replace('_', ' ').title(), level=1)
             doc.add_paragraph(str(v))
-
+            
     output_path.parent.mkdir(parents=True, exist_ok=True)
     doc.save(str(output_path))
     return output_path
